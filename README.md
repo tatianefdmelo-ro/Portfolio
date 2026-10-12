@@ -2,7 +2,7 @@
 
 Mapeamento da produção, das instituições e das redes de colaboração de mulheres pesquisadoras no campo da Ciência Aberta (2015–2026), com dados extraídos do [OpenAlex](https://openalex.org).
 
-**Dashboard interativo e site do projeto:** https://tatianefdmelo-ro.github.io/Cartografia_Feminina_Ciencia_Aberta/
+**Dashboard interativo e site do projeto:** https://tatianefdmelo-ro.github.io/Portfolio/
 <!-- EDITAR: troque pelo endereço real do seu GitHub Pages -->
 
 ---
