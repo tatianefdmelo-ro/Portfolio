@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Portfólio de Tatiane Ferro de Melo, Analista de Dados Jr. Power BI, Power Automate, SQL, Python, governança da informação e automação de processos.">
+<title>Tatiane Ferro de Melo · Portfólio de Dados</title>
+<style>
+:root {
+  --mint: #DDF8F0;
+  --baby: #BFEFFF;
+  --cyan: #5EDCC6;
+  --teal: #199F91;
+  --teal-text: #0E7A6E;
+  --bg: #F5FBFF;
+  --ink: #243746;
+  --ink-soft: #4A5F6E;
+  --line: #D8E8EF;
+  --white: #FFFFFF;
+  --shadow: 0 16px 44px rgba(36, 55, 70, .08);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; scroll-padding-top: 84px; }
+body {
+  color: var(--ink);
+  background: var(--bg);
+  font-family: Inter, "Segoe UI", Helvetica, Arial, sans-serif;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--teal-text); text-underline-offset: 4px; }
+a:hover { color: var(--teal); }
+:focus-visible { outline: 3px solid var(--teal); outline-offset: 3px; border-radius: 6px; }
+
+/* Header */
+.site-header {
+  position: sticky; top: 0; z-index: 20;
+  display: flex; align-items: center; justify-content: space-between; gap: 24px;
+  padding: 16px clamp(20px, 5vw, 76px);
+  background: rgba(245, 251, 255, .92); backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--line);
+}
+.brand { color: var(--ink); text-decoration: none; font-size: 14px; font-weight: 800; letter-spacing: .06em; line-height: 1.25; text-transform: uppercase; }
+.brand span { display: block; color: var(--teal-text); font-size: 10px; font-weight: 700; letter-spacing: .14em; margin-top: 3px; }
+.nav { display: flex; align-items: center; flex-wrap: wrap; gap: clamp(14px, 2.2vw, 30px); }
+.nav a { color: var(--ink-soft); text-decoration: none; font-size: 13px; font-weight: 650; }
+.nav a:hover { color: var(--teal-text); }
+.nav .nav-cta { background: var(--cyan); color: var(--ink); padding: 8px 16px; border-radius: 999px; font-weight: 750; }
+.nav .nav-cta:hover { background: var(--teal); color: white; }
+
+/* Hero */
+.hero {
+  max-width: 1360px; margin: 0 auto;
+  padding: clamp(56px, 8vw, 112px) clamp(22px, 6vw, 88px) 72px;
+  display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(280px, .75fr); gap: 56px; align-items: center;
+}
+.eyebrow { display: inline-flex; align-items: center; gap: 10px; color: var(--teal-text); font-size: 12px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; margin-bottom: 22px; }
+.eyebrow:before { content: ""; width: 28px; height: 3px; border-radius: 3px; background: var(--cyan); }
+h1 { font-family: Georgia, "Times New Roman", serif; font-weight: 400; font-size: clamp(40px, 5.8vw, 76px); line-height: 1.04; letter-spacing: -.04em; }
+h1 span { color: var(--teal); }
+.subtitle { max-width: 600px; margin-top: 24px; color: var(--ink-soft); font-size: clamp(16px, 1.5vw, 19px); }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
+.btn { display: inline-flex; align-items: center; gap: 8px; padding: 13px 24px; border-radius: 999px; font-size: 14px; font-weight: 750; text-decoration: none; transition: transform .2s ease, background .2s ease, color .2s ease; }
+.btn:hover { transform: translateY(-2px); }
+.btn-primary { background: var(--cyan); color: var(--ink); }
+.btn-primary:hover { background: var(--teal); color: white; }
+.btn-ghost { border: 1.5px solid var(--teal); color: var(--teal-text); background: transparent; }
+.btn-ghost:hover { background: var(--mint); color: var(--teal-text); }
+.hero-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 30px; }
+.hero-tags span { border: 1px solid var(--line); border-radius: 999px; padding: 6px 13px; background: white; color: var(--ink); font-size: 12px; font-weight: 700; }
+
+.hero-panel { display: grid; gap: 14px; }
+.hero-card { padding: 22px 24px; border-radius: 16px; background: var(--white); border: 1px solid var(--line); box-shadow: var(--shadow); }
+.hero-card:nth-child(1) { background: var(--mint); }
+.hero-card:nth-child(2) { background: var(--baby); border-color: #a9e2f5; margin-left: 28px; }
+.hero-card h3 { font-size: 17px; }
+.hero-card p { margin-top: 4px; color: var(--ink-soft); font-size: 14px; }
+
+/* Sections */
+main { width: 100%; }
+section { max-width: 1360px; margin: 0 auto; padding: 72px clamp(22px, 5vw, 76px); }
+.band { max-width: none; background: var(--mint); }
+.band-inner { max-width: 1360px; margin: 0 auto; }
+.kicker { color: var(--teal-text); font-size: 12px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; margin-bottom: 8px; }
+.section-title { font-family: Georgia, "Times New Roman", serif; font-weight: 400; font-size: clamp(28px, 3.2vw, 42px); line-height: 1.15; letter-spacing: -.02em; }
+.prose { max-width: 760px; margin-top: 20px; color: var(--ink-soft); font-size: 16px; }
+.prose p + p { margin-top: 14px; }
+
+/* Sobre */
+.about-grid { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(260px, .8fr); gap: 44px; align-items: start; }
+.facts { display: grid; gap: 12px; }
+.fact { padding: 18px 20px; background: white; border: 1px solid var(--line); border-radius: 14px; }
+.fact .label { color: var(--ink-soft); font-size: 11px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+.fact .value { margin-top: 4px; font-weight: 650; }
+
+/* Competências */
+.skills-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: 30px; }
+.skill-card { padding: 24px; background: white; border: 1px solid var(--line); border-radius: 16px; }
+.skill-card h3 { font-size: 16px; color: var(--ink); display: flex; align-items: center; gap: 10px; }
+.skill-card h3:before { content: ""; width: 10px; height: 10px; border-radius: 50%; background: var(--cyan); box-shadow: 0 0 0 4px var(--mint); }
+.chips { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 16px; }
+.chips span { padding: 5px 11px; border-radius: 999px; background: var(--bg); border: 1px solid var(--line); font-size: 12.5px; font-weight: 600; }
+
+/* Projetos */
+.project-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; margin-top: 30px; }
+.project-card { display: flex; flex-direction: column; min-height: 250px; padding: 26px; background: white; border: 1px solid var(--line); border-radius: 16px; text-decoration: none; color: var(--ink); transition: transform .2s ease, box-shadow .2s ease; }
+a.project-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); color: var(--ink); }
+.project-number { color: var(--teal-text); font-size: 11px; font-weight: 800; letter-spacing: .14em; }
+.project-card h3 { margin-top: 16px; font-family: Georgia, serif; font-size: 24px; font-weight: 400; line-height: 1.2; }
+.project-card p { margin-top: 10px; color: var(--ink-soft); font-size: 14.5px; }
+.project-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
+.project-tags span { font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 999px; background: var(--mint); color: var(--ink); }
+.project-link { margin-top: auto; padding-top: 20px; color: var(--teal-text); font-size: 13px; font-weight: 800; }
+.project-card.featured { background: linear-gradient(160deg, var(--mint), var(--baby)); border-color: #b7e6ef; }
+.project-card.soon { background: transparent; border-style: dashed; }
+.project-card.soon h3 { color: var(--ink-soft); }
+
+/* Experiência */
+.timeline { margin-top: 32px; display: grid; gap: 18px; position: relative; }
+.job { display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 28px; padding: 26px; background: white; border: 1px solid var(--line); border-radius: 16px; }
+.job-meta .period { color: var(--teal-text); font-size: 12px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
+.job-meta .org { margin-top: 6px; font-weight: 750; }
+.job-meta .role { color: var(--ink-soft); font-size: 14px; }
+.job ul { padding-left: 18px; color: var(--ink-soft); font-size: 14.5px; }
+.job li + li { margin-top: 6px; }
+
+/* Formação */
+.edu-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; margin-top: 30px; }
+.edu-card { padding: 24px; background: white; border: 1px solid var(--line); border-radius: 16px; }
+.edu-card .label { color: var(--teal-text); font-size: 11px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
+.edu-card h3 { margin-top: 10px; font-family: Georgia, serif; font-size: 22px; font-weight: 400; }
+.edu-card p { margin-top: 4px; color: var(--ink-soft); font-size: 14.5px; }
+
+/* Contato */
+.contact-box { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 32px; align-items: center; padding: clamp(28px, 4vw, 48px); background: var(--ink); color: white; border-radius: 22px; }
+.contact-box .kicker { color: var(--cyan); }
+.contact-box h2 { font-family: Georgia, serif; font-weight: 400; font-size: clamp(26px, 3vw, 38px); line-height: 1.15; }
+.contact-box p { margin-top: 12px; color: #C9DAE3; max-width: 560px; }
+.contact-links { display: grid; gap: 10px; }
+.contact-links a { display: inline-flex; justify-content: center; padding: 12px 22px; border-radius: 999px; font-weight: 750; font-size: 14px; text-decoration: none; background: var(--cyan); color: var(--ink); }
+.contact-links a:hover { background: white; color: var(--ink); }
+.contact-links a.alt { background: transparent; color: white; border: 1.5px solid rgba(255,255,255,.4); }
+.contact-links a.alt:hover { background: rgba(255,255,255,.12); color: white; }
+
+footer { max-width: 1360px; margin: 0 auto; padding: 28px clamp(22px, 5vw, 76px) 44px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; color: var(--ink-soft); font-size: 12.5px; }
+
+@media (max-width: 960px) {
+  .skills-grid, .project-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 800px) {
+  .hero, .about-grid { grid-template-columns: 1fr; gap: 32px; }
+  .hero-card:nth-child(2) { margin-left: 0; }
+  .job { grid-template-columns: 1fr; gap: 14px; }
+  .edu-grid { grid-template-columns: 1fr; }
+  .contact-box { grid-template-columns: 1fr; }
+}
+@media (max-width: 560px) {
+  .site-header { align-items: flex-start; flex-direction: column; gap: 10px; padding: 14px 20px; }
+  .nav { gap: 10px 16px; }
+  .nav a { font-size: 12.5px; }
+  .hero { padding-top: 44px; padding-bottom: 44px; }
+  section { padding-top: 52px; padding-bottom: 52px; }
+  .skills-grid, .project-grid { grid-template-columns: 1fr; }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
+</style>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#inicio">Tatiane Ferro de Melo<span>Portfólio de dados</span></a>
+    <nav class="nav" aria-label="Navegação principal">
+      <a href="#sobre">Sobre</a>
+      <a href="#competencias">Competências</a>
+      <a href="#projetos">Projetos</a>
+      <a href="#experiencia">Experiência</a>
+      <a href="#formacao">Formação</a>
+      <a class="nav-cta" href="#contato">Contato</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="hero" id="inicio">
+      <div>
+        <div class="eyebrow">Dados · Automação · IA</div>
+        <h1>Transformando <span>dados em conhecimento.</span></h1>
+        <p class="subtitle">Sou Tatiane, Analista de Dados Jr. com formação em Arquivologia. Construo dashboards em Power BI, automatizo fluxos de trabalho e organizo informação para apoiar decisões de negócio.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#projetos">Explorar projetos</a>
+          <a class="btn btn-ghost" href="#sobre">Sobre mim</a>
+        </div>
+        <div class="hero-tags">
+          <span>Power BI</span><span>Power Automate</span><span>SQL</span><span>Python</span><span>Governança</span>
+        </div>
+      </div>
+      <aside class="hero-panel" aria-label="Áreas de atuação">
+        <div class="hero-card">
+          <h3>Power BI</h3>
+          <p>Dashboards, modelagem de dados e indicadores (KPIs).</p>
+        </div>
+        <div class="hero-card">
+          <h3>Automação de processos</h3>
+          <p>Power Automate, RPA e assistentes virtuais no Copilot Studio.</p>
+        </div>
+        <div class="hero-card">
+          <h3>Governança da informação</h3>
+          <p>Gestão documental, qualidade de dados e rastreabilidade.</p>
+        </div>
+      </aside>
+    </div>
+
+    <section id="sobre">
+      <div class="about-grid">
+        <div>
+          <div class="kicker">Apresentação</div>
+          <h2 class="section-title">Sobre mim</h2>
+          <div class="prose">
+            <p>Atuo com análise de dados, automação de processos e governança da informação. Minha rotina inclui construir dashboards e KPIs em Power BI, tratar e modelar dados e automatizar fluxos com Power Automate e Microsoft Copilot Studio, apoiada em uma base sólida de Excel avançado (Power Query e VBA), SharePoint e SQL.</p>
+            <p>Minha trajetória em Arquivologia me dá um olhar cuidadoso para organização, qualidade e rastreabilidade da informação, algo que levo para os projetos de dados.</p>
+            <p>Hoje foco em iniciativas de automação, integração de sistemas e soluções analíticas voltadas à eficiência operacional. Tenho interesse em expandir minha atuação em Data Analytics, Business Intelligence, Engenharia de Dados e Inteligência Artificial aplicada a processos corporativos.</p>
+          </div>
+        </div>
+        <div class="facts">
+          <div class="fact"><div class="label">Atuação atual</div><div class="value">Estagiária na Petros, Gestão Documental e dados</div></div>
+          <div class="fact"><div class="label">Formação</div><div class="value">Arquivologia, UFF (em andamento)</div></div>
+          <div class="fact"><div class="label">Idioma</div><div class="value">Inglês avançado/fluente</div></div>
+          <div class="fact"><div class="label">Localização</div><div class="value">Rio de Janeiro, RJ</div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="band" id="competencias">
+      <div class="band-inner">
+        <div class="kicker">Ferramentas e conhecimentos</div>
+        <h2 class="section-title">Competências técnicas</h2>
+        <div class="skills-grid">
+          <div class="skill-card">
+            <h3>Análise e visualização</h3>
+            <div class="chips"><span>Power BI</span><span>DAX</span><span>Modelagem de dados</span><span>Dashboards executivos</span><span>KPIs</span></div>
+          </div>
+          <div class="skill-card">
+            <h3>Dados e programação</h3>
+            <div class="chips"><span>SQL</span><span>Python</span><span>ETL</span><span>Excel avançado</span><span>Power Query</span><span>VBA</span><span>Tabelas dinâmicas</span></div>
+          </div>
+          <div class="skill-card">
+            <h3>Automação e IA</h3>
+            <div class="chips"><span>Power Automate</span><span>Power Automate Desktop (RPA)</span><span>Copilot Studio</span><span>Agentes de IA</span><span>Assistentes virtuais</span></div>
+          </div>
+          <div class="skill-card">
+            <h3>Cloud</h3>
+            <div class="chips"><span>Google Cloud Platform</span><span>BigQuery</span><span>Cloud Storage</span></div>
+          </div>
+          <div class="skill-card">
+            <h3>Governança e informação</h3>
+            <div class="chips"><span>Governança de dados</span><span>Qualidade de dados</span><span>Gestão documental</span><span>Gestão informacional</span><span>SharePoint Online</span></div>
+          </div>
+          <div class="skill-card">
+            <h3>Melhoria de processos</h3>
+            <div class="chips"><span>Melhoria contínua</span><span>Transformação digital</span><span>Indicadores de performance</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projetos">
+      <div class="kicker">Explore o portfólio</div>
+      <h2 class="section-title">Projetos em destaque</h2>
+      <div class="prose"><p>Projetos de análise de dados, visualização interativa e automação. Novos trabalhos serão adicionados ao longo do tempo.</p></div>
+      <div class="project-grid">
+        <a class="project-card featured" href="./projetos/Cartografia_Feminina_Ciencia_Aberta/index.html" target="_blank"> 
+          <span class="project-number">PROJETO 01 · POWER BI & PYTHON</span>
+          <h3>Cartografia Feminina na Ciência Aberta</h3>
+          <p>Mapeamento da produção científica, das instituições e das redes de colaboração de mulheres pesquisadoras em Ciência Aberta (2015–2026), com dados do OpenAlex.</p>
+          <div class="project-tags"><span>Power BI</span><span>OpenAlex</span><span>Python</span></div>
+          <span class="project-link">Explorar projeto ↗</span>
+        </a><a class="project-card soon" href="./projetos/Hashtag_Eletro/index.html" target="_blank" rel="noopener">
+          <span class="project-number">PROJETO 02 · POWER BI & JUPYTER NOTEBOOK</span>
+          <h3>CURSO HASHTAG TREINAMENTOS</h3>
+          <p>Enquanto isso, acompanhe meus repositórios e estudos no GitHub.</p>
+          <span class="project-link">Ver repositórios ↗</span>
+        </a>
+        <div class="project-card soon">
+          <span class="project-number">PROJETO 02 · EM BREVE</span>
+          <h3>Próximo projeto</h3>
+          <p>Espaço reservado para uma nova análise, projeto de SQL, Python ou automação.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="band" id="experiencia">
+      <div class="band-inner">
+        <div class="kicker">Trajetória</div>
+        <h2 class="section-title">Experiência profissional</h2>
+        <div class="timeline">
+          <article class="job">
+            <div class="job-meta">
+              <div class="period">2025 – Atual</div>
+              <div class="org">Petros</div>
+              <div class="role">Estagiária</div>
+            </div>
+            <ul>
+              <li>Atendimento a chamados de Gestão Documental, com pesquisa documental, solicitação de mídias e suporte aos usuários.</li>
+              <li>Digitalização, indexação e organização de documentos físicos e digitais em OnBase e SharePoint, garantindo disponibilidade e rastreabilidade.</li>
+              <li>Desenvolvimento e manutenção de dashboards e painéis de KPIs em Power BI, com integração a bancos de dados, modelagem e criação de métricas.</li>
+              <li>Planilhas avançadas em Excel (Power Query, VBA, tabelas dinâmicas) para automação de rotinas e relatórios gerenciais.</li>
+              <li>Automação de processos com Power Automate, integrando e-mails, planilhas e aplicações corporativas (RPA).</li>
+              <li>Desenvolvimento de assistentes virtuais no Microsoft Copilot Studio para automatizar atendimentos e disponibilizar informações.</li>
+              <li>Lançamento de pré-notas e solicitações de pagamento no ERP Protheus, com apoio à fiscalização de contratos de Facilities.</li>
+              <li>Participação em iniciativas de melhoria contínua e transformação digital.</li>
+            </ul>
+          </article>
+          <article class="job">
+            <div class="job-meta">
+              <div class="period">2024</div>
+              <div class="org">Secretaria de Estado de Fazenda do RJ</div>
+              <div class="role">Estagiária de Arquivologia</div>
+            </div>
+            <ul>
+              <li>Processamento técnico da Massa Documental Acumulada (MDA), com identificação arquivística de documentos e processos.</li>
+              <li>Classificação, conferência, registro e organização de documentos transferidos.</li>
+              <li>Levantamento de processos em condições de eliminação, com indexação em bases de controle.</li>
+              <li>Uso do Plano de Classificação e da Tabela de Temporalidade, e realização de diagnósticos de acervo.</li>
+              <li>Tramitação, análise e gestão de processos administrativos digitais no Sistema Eletrônico de Informações (SEI).</li>
+            </ul>
+          </article>
+          <article class="job">
+            <div class="job-meta">
+              <div class="period">2023 – 2024</div>
+              <div class="org">Alterdata Software</div>
+              <div class="role">Jovem Aprendiz · Auxiliar Administrativo</div>
+            </div>
+            <ul>
+              <li>Apoio a consultores comerciais, com contato direto com clientes e registro de pareceres no Bimmer UP.</li>
+              <li>Criação e gestão de planilhas de controle e relatórios; produção de materiais para eventos corporativos.</li>
+              <li>Abertura e acompanhamento de chamados no CRM para demandas técnicas.</li>
+              <li>Elaboração de apresentações comerciais e institucionais no PowerPoint e atendimento a clientes com coleta de feedback.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="formacao">
+      <div class="kicker">Estudos</div>
+      <h2 class="section-title">Formação e idiomas</h2>
+      <div class="edu-grid">
+        <div class="edu-card">
+          <div class="label">Graduação · em andamento</div>
+          <h3>Arquivologia</h3>
+          <p>Universidade Federal Fluminense (UFF)</p>
+        </div>
+        <div class="edu-card">
+          <div class="label">Idiomas</div>
+          <h3>Inglês</h3>
+          <p>Avançado/fluente</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contato">
+      <div class="contact-box">
+        <div>
+          <div class="kicker">Vamos conversar</div>
+          <h2>Interessou por algum projeto ou quer trocar uma ideia?</h2>
+          <p>Estou aberta a oportunidades e colaborações em Data Analytics, Business Intelligence, automação e IA aplicada a processos.</p>
+        </div>
+        <div class="contact-links">
+          <a href="mailto:tatianefdmelo@gmail.com">Enviar e-mail</a>
+          <a class="alt" href="https://www.linkedin.com/in/tatianefdmelo" target="_blank" rel="noopener">LinkedIn ↗</a>
+          <a class="alt" href="https://github.com/tatianefdmelo-ro" target="_blank" rel="noopener">GitHub ↗</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>© 2026 Tatiane Ferro de Melo · Portfólio de dados</span>
+    <span>Rio de Janeiro, RJ</span>
+  </footer>
+</body>
+</html>

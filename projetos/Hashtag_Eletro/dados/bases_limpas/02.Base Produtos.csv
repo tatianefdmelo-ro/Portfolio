@@ -1,0 +1,85 @@
+SKU;Marca;Categoria;Preco Unitario;Custo Unitario;Nome Produto;cor
+hl0971;apple;celular;3900.0;2500.0;iphone xr 64gb;preto
+hl0972;apple;celular;4500.0;2900.0;iphone 11 64gb;branco
+hl0973;apple;celular;2500.0;1500.0;iphone 7 32gb;dourado
+hl0974;apple;celular;3200.0;2100.0;iphone 8 64gb;cinza espacial
+hl0975;samsung;celular;1800.0;1100.0;galaxy a51 128gb;preto
+hl0976;samsung;celular;4500.0;2800.0;galaxy s10 128gb;cinza
+hl0977;samsung;celular;1100.0;600.0;galaxy j7 prime 32gb;dourado
+hl0978;xiaomi;celular;1300.0;750.0;redmi note 8 64gb;azul
+hl0979;motorola;celular;1200.0;700.0;moto g7 power 64gb;azul
+hl0980;apple;tablet;2400.0;1500.0;ipad 10.2' 32gb wi-fi;prata
+hl0981;apple;áudio;1200.0;650.0;airpods 2ª geração com estojo;branco
+hl0982;xiaomi;smart watch;200.0;85.0;smart band mi band 4;preto
+hl0983;apple;smart watch;1750.0;900.0;apple watch series 3;preto
+hl0984;jbl;áudio;450.0;220.0;caixa de som flip 4;azul
+hl0985;jbl;áudio;180.0;80.0;caixa de som go 2;preto
+hl0986;sony;áudio;1600.0;950.0;fone wh-1000xm3;preto
+hl0987;google;acessórios;250.0;120.0;chromecast 3;preto
+hl0988;amazon;acessórios;240.0;110.0;fire tv stick full hd;preto
+hl0989;samsung;televisão;2600.0;1700.0;smart tv 50' 4k uhd;preto
+hl0990;lg;televisão;2800.0;1850.0;smart tv 55' 4k uhd;preto
+hl0991;samsung;televisão;1300.0;800.0;smart tv 32' hd;preto
+hl0992;dell;notebook;2600.0;1500.0;notebook inspiron 15 3000;prata
+hl0993;lenovo;notebook;2300.0;1300.0;notebook ideapad s145;cinza
+hl0994;acer;notebook;2500.0;1400.0;notebook aspire 5;prata
+hl0995;apple;notebook;6800.0;4300.0;macbook air 13' i5 128gb;prata
+hl0996;logitech;acessórios;380.0;190.0;webcam c920 hd pro;preto
+hl0997;sony;video game;2400.0;1600.0;console playstation 4 slim 1tb;preto
+hl0998;nintendo;video game;2500.0;1700.0;console nintendo switch 32gb;azul/vermelho
+hl0999;microsoft;video game;1800.0;1200.0;console xbox one s 1tb;branco
+hl1000;canon;câmera;1500.0;850.0;câmera digital rebel t6;preto
+hl1001;lg;televisão;2600.0;1700.0;smart tv 50' 4k;preto
+hl1002;apple;celular;2500.0;1500.0;iphone 7;dourado
+hl1003;samsung;celular;4500.0;2800.0;galaxy s10;cinza
+hl1004;apple;smart watch;1750.0;900.0;apple watch;preto
+hl1005;canon;câmera;1500.0;850.0;câmera digital rebel t6;preto
+hl1006;samsung;televisão;1400.0;900.0;tv led 32';preto
+hl1007;dell;notebook;2300.0;1200.0;inspiron 15;prata
+hl1008;philco;televisão;2000.0;1250.0;smart tv led full hd 55';preto
+hl1009;motorola;celular;1400.0;750.0;moto g7;vermelho
+hl1010;apple;celular;1900.0;1150.0;iphone 6s;rosa
+hl1011;samsung;tablet;2000.0;1100.0;tablet m10 android;preto
+hl1012;dell;notebook;5500.0;3200.0;dell g7;vermelho
+hl1013;nikon;câmera;1550.0;700.0;câmera coolpix l340;cinza
+hl1014;samsung;celular;1100.0;550.0;galaxy j8;roxo
+hl1015;sony;câmera;700.0;300.0;câmera digital sony cyber;azul
+hl1016;samsung;smart watch;1450.0;700.0;smart watch galaxy;azul
+hl1017;samsung;televisão;5200.0;3500.0;smart tv 75' 4k;preto
+hl1018;xiaomi;smart watch;1200.0;650.0;smart watch mi;amarelo
+hl1019;apple;celular;6500.0;2800.0;iphone xs;preto
+hl1020;motorola;celular;1500.0;650.0;moto z;vermelho
+hl1021;samsung;celular;3000.0;1400.0;galaxy s8;verde
+hl1022;apple;tablet;750.0;350.0;ipad 32gb wifi;prata
+hl1023;samsung;notebook;1500.0;550.0;samsung dual core;preto
+hl1024;acer;notebook;2400.0;1150.0;aspire 5;cinza
+hl1025;apple;celular;7000.0;4800.0;iphone 16 128gb;preto
+hl1026;apple;celular;5300.0;3600.0;iphone 15 128gb;azul
+hl1027;samsung;celular;8500.0;5800.0;galaxy s25 ultra 256gb;titânio
+hl1028;samsung;celular;2100.0;1350.0;galaxy a55 5g 128gb;azul escuro
+hl1029;xiaomi;celular;2200.0;1400.0;redmi note 13 pro 5g;preto
+hl1030;motorola;celular;1600.0;1000.0;moto g84 5g 256gb;grafite
+hl1031;apple;tablet;3600.0;2400.0;ipad 10ª geração 64gb;prata
+hl1032;samsung;tablet;2700.0;1750.0;galaxy tab s9 fe 128gb;cinza
+hl1033;apple;áudio;2200.0;1300.0;airpods pro (2ª geração usb-c);branco
+hl1034;samsung;áudio;1200.0;700.0;galaxy buds3;prata
+hl1035;apple;smart watch;4200.0;2700.0;apple watch series 10;alumínio preto
+hl1036;samsung;smart watch;2100.0;1300.0;galaxy watch 7;grafite
+hl1037;xiaomi;smart watch;290.0;140.0;smart band mi band 9;preto
+hl1038;jbl;áudio;650.0;380.0;caixa de som bluetooth flip 6;preto
+hl1039;sony;áudio;2800.0;1800.0;headphone wh-1000xm5;preto
+hl1040;amazon;acessórios;380.0;200.0;echo dot 5ª geração com alexa;preto
+hl1041;amazon;acessórios;350.0;180.0;fire tv stick 4k;preto
+hl1042;google;acessórios;300.0;150.0;chromecast hd com google tv;branco
+hl1043;samsung;televisão;2500.0;1650.0;smart tv 50' crystal uhd 4k;preto
+hl1044;lg;televisão;6800.0;4600.0;smart tv 55' oled evo c4;preto
+hl1045;xiaomi;acessórios;1800.0;1100.0;robô aspirador robot vacuum s10;branco
+hl1046;apple;notebook;9500.0;6500.0;macbook air 13' m3 256gb;cinza espacial
+hl1047;dell;notebook;3800.0;2500.0;notebook inspiron 15 core ultra;prata
+hl1048;lenovo;notebook;2900.0;1850.0;notebook ideapad slim 3;cinza
+hl1049;acer;notebook;4800.0;3300.0;notebook gamer nitro v15;preto
+hl1050;asus;video game;6200.0;4200.0;console rog ally x;preto
+hl1051;sony;video game;3800.0;2700.0;console playstation 5 slim 1tb;branco
+hl1052;nintendo;video game;2200.0;1500.0;console nintendo switch oled;azul/vermelho
+hl1053;meta;video game;3200.0;2100.0;óculos vr meta quest 3s 128gb;branco
+hl1054;dji;câmera;7500.0;5200.0;drone mini 4 pro fly more combo;cinza

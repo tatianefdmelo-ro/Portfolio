@@ -1,0 +1,41 @@
+{
+  "name": "Tema Bibliometria - Roxo",
+  "dataColors": [
+    "#744EC2",
+    "#D9455F",
+    "#6B007B",
+    "#9585B8",
+    "#B8A7D9",
+    "#E77A8D",
+    "#9B72CF",
+    "#D4C9E8"
+  ],
+  "background": "#171230",
+  "foreground": "#F5F2FA",
+  "tableAccent": "#744EC2",
+  "good": "#9B72CF",
+  "neutral": "#9585B8",
+  "bad": "#D9455F",
+  "textClasses": {
+    "title": {
+      "fontFace": "Segoe UI Semibold",
+      "fontSize": 14,
+      "color": "#FFFFFF"
+    },
+    "header": {
+      "fontFace": "Segoe UI Semibold",
+      "fontSize": 11,
+      "color": "#FFFFFF"
+    },
+    "label": {
+      "fontFace": "Segoe UI",
+      "fontSize": 10,
+      "color": "#F5F2FA"
+    },
+    "callout": {
+      "fontFace": "Segoe UI Semibold",
+      "fontSize": 28,
+      "color": "#FFFFFF"
+    }
+  }
+}

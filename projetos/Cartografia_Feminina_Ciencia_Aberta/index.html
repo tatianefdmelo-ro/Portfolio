@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Mapeamento da produção, instituições e redes de colaboração de mulheres pesquisadoras em Ciência Aberta (2015–2026), com dados do OpenAlex.">
+<title>Cartografia Feminina na Ciência Aberta</title>
+<style>
+:root {
+  --ink: #21133f;
+  --ink-soft: #514568;
+  --muted: #766b87;
+  --purple: #6b32a8;
+  --purple-deep: #281449;
+  --lilac: #b8a0dd;
+  --pink: #d94f86;
+  --paper: #fbf9fd;
+  --surface: #ffffff;
+  --line: #e8e0f0;
+  --shadow: 0 18px 55px rgba(46, 23, 76, .09);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+body {
+  color: var(--ink);
+  background: var(--paper);
+  font-family: Inter, "Segoe UI", Helvetica, Arial, sans-serif;
+  line-height: 1.65;
+}
+a { color: var(--purple); text-underline-offset: 4px; }
+a:hover { color: var(--pink); }
+.site-header {
+  position: sticky; top: 0; z-index: 20;
+  display: flex; align-items: center; justify-content: space-between; gap: 24px;
+  padding: 17px clamp(20px, 5vw, 76px);
+  background: rgba(251,249,253,.92); backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(232,224,240,.9);
+}
+.brand { color: var(--ink); text-decoration: none; font-size: 13px; font-weight: 800; letter-spacing: .07em; line-height: 1.25; }
+.brand span { display: block; color: var(--muted); font-size: 10px; font-weight: 600; letter-spacing: .14em; margin-top: 4px; text-transform: uppercase; }
+.nav { display: flex; align-items: center; flex-wrap: wrap; gap: clamp(14px, 2.4vw, 32px); }
+.nav a { color: var(--ink-soft); text-decoration: none; font-size: 13px; font-weight: 650; }
+.nav a:hover { color: var(--pink); }
+.hero {
+  max-width: 1440px; margin: 0 auto; padding: clamp(62px, 9vw, 124px) clamp(22px, 7vw, 104px) 74px;
+  display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(230px, .8fr); gap: 48px; align-items: center;
+}
+.eyebrow { display: flex; align-items: center; gap: 10px; color: var(--purple); font-size: 11px; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; margin-bottom: 22px; }
+.eyebrow:before { content: ""; width: 27px; height: 2px; background: var(--pink); }
+h1 { max-width: 780px; font-family: Georgia, "Times New Roman", serif; font-weight: 400; font-size: clamp(42px, 6.2vw, 82px); line-height: 1.02; letter-spacing: -.045em; }
+h1 span { color: var(--pink); }
+.subtitle { max-width: 650px; margin-top: 25px; color: var(--ink-soft); font-size: clamp(16px, 1.6vw, 20px); }
+.hero-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 27px; }
+.hero-tags span { border: 1px solid #ded1ed; border-radius: 999px; padding: 6px 12px; color: var(--purple-deep); background: white; font-size: 11px; font-weight: 700; }
+.hero-aside { padding: 28px 0 28px 28px; border-left: 1px solid var(--line); }
+.hero-aside .big-note { font-family: Georgia, serif; font-size: clamp(23px, 2.5vw, 34px); line-height: 1.2; }
+.hero-aside p { margin-top: 16px; color: var(--muted); font-size: 14px; }
+main { width: 100%; }
+section { max-width: 1440px; margin: 0 auto; padding: 64px clamp(22px, 5vw, 76px); }
+.section-heading { display: flex; justify-content: space-between; align-items: end; gap: 24px; margin-bottom: 24px; }
+.kicker { color: var(--pink); font-size: 11px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; margin-bottom: 8px; }
+.section-title { font-family: Georgia, "Times New Roman", serif; font-weight: 400; font-size: clamp(29px, 3.3vw, 43px); line-height: 1.15; letter-spacing: -.025em; }
+.prose { max-width: 780px; color: var(--ink-soft); font-size: 16px; }
+.prose p + p { margin-top: 15px; }
+.note { max-width: 850px; margin-top: 26px; padding: 18px 22px; background: #f1eaf9; border-left: 3px solid var(--pink); border-radius: 0 10px 10px 0; color: #57476b; font-size: 14px; }
+.note strong { color: var(--ink); }
+.dashboard-section { max-width: none; padding: 68px clamp(12px, 2.2vw, 34px) 76px; background: #f0eaf7; }
+.dashboard-inner { max-width: 1720px; margin: 0 auto; }
+.dashboard-topline { display: flex; align-items: end; justify-content: space-between; gap: 20px; padding: 0 clamp(10px, 2vw, 28px); margin-bottom: 22px; }
+.dashboard-topline .prose { max-width: 680px; }
+.open-report { flex: 0 0 auto; display: inline-flex; align-items: center; justify-content: center; gap: 9px; padding: 12px 17px; border-radius: 999px; color: white; background: var(--purple-deep); text-decoration: none; font-size: 13px; font-weight: 750; }
+.open-report:hover { background: var(--purple); color: white; }
+.dashboard-frame-wrap { background: white; border: 1px solid #e2d7ed; border-radius: 14px; overflow: hidden; box-shadow: var(--shadow); }
+.dashboard-frame-wrap iframe { display: block; width: 100%; height: min(78vw, 980px); min-height: 620px; border: 0; background: white; }
+.project-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; margin-top: 28px; }
+.project-card { display: flex; flex-direction: column; min-height: 220px; padding: 24px; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; text-decoration: none; box-shadow: 0 5px 20px rgba(46,23,76,.035); transition: transform .2s ease, box-shadow .2s ease; }
+.project-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+.project-number { color: var(--pink); font-size: 11px; font-weight: 800; letter-spacing: .15em; }
+.project-card h3 { margin-top: 19px; color: var(--ink); font-family: Georgia, serif; font-size: 24px; font-weight: 400; line-height: 1.2; }
+.project-card p { margin-top: 10px; color: var(--muted); font-size: 14px; }
+.project-link { margin-top: auto; padding-top: 22px; color: var(--purple); font-size: 13px; font-weight: 800; }
+.themes-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; margin-top: 25px; }
+.theme-card { padding: 23px; background: white; border: 1px solid var(--line); border-radius: 12px; }
+.theme-card .label { color: var(--muted); font-size: 10px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+.theme-card .value { margin-top: 10px; color: var(--purple); font-family: Georgia, serif; font-size: clamp(18px, 2vw, 25px); overflow-wrap: anywhere; }
+.method-grid { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(240px, .8fr); gap: 36px; align-items: start; }
+.repo-card { padding: 25px; background: var(--purple-deep); color: white; border-radius: 14px; }
+.repo-card h3 { font-family: Georgia, serif; font-size: 25px; font-weight: 400; }
+.repo-card p { color: #d8cde8; font-size: 14px; margin-top: 10px; }
+.repo-card a { display: inline-block; margin-top: 18px; color: white; font-weight: 750; }
+footer { max-width: 1440px; margin: 0 auto; padding: 30px clamp(22px, 5vw, 76px) 45px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; color: var(--muted); font-size: 12px; }
+@media (max-width: 800px) {
+  .hero { grid-template-columns: 1fr; gap: 28px; }
+  .hero-aside { padding: 20px 0 0; border-left: 0; border-top: 1px solid var(--line); }
+  .project-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .themes-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .method-grid { grid-template-columns: 1fr; }
+  .dashboard-topline { align-items: start; flex-direction: column; }
+  .dashboard-frame-wrap iframe { height: 78vh; min-height: 560px; }
+}
+@media (max-width: 520px) {
+  .site-header { align-items: flex-start; flex-direction: column; gap: 12px; padding: 14px 20px; }
+  .nav { gap: 12px 18px; }
+  .nav a { font-size: 12px; }
+  .hero { padding-top: 55px; padding-bottom: 46px; }
+  section { padding-top: 48px; padding-bottom: 48px; }
+  .project-grid, .themes-grid { grid-template-columns: 1fr; }
+  .dashboard-section { padding-left: 8px; padding-right: 8px; }
+  .dashboard-frame-wrap { border-radius: 8px; }
+  .dashboard-frame-wrap iframe { min-height: 500px; height: 82vh; }
+  footer { flex-direction: column; }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
+</style>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#inicio">TATIANE FERRO DE MELO<span>Portfólio de dados</span></a>
+    <nav class="nav" aria-label="Navegação principal">
+      <a href="#inicio">Início</a>
+      <a href="#projetos">Projetos</a>
+      <a href="#dashboard">Dashboard</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#metodologia">Metodologia</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="hero" id="inicio">
+      <div>
+        <div class="eyebrow">Portfólio de análise de dados · Projeto em destaque</div>
+        <h1>Cartografia Feminina <span>na Ciência Aberta</span></h1>
+        <p class="subtitle">Mapeando trajetórias, perfis e redes de mulheres pesquisadoras no campo da Ciência Aberta, do Acesso Aberto e da Comunicação Científica (2015–2026).</p>
+        <div class="hero-tags">
+          <span>Power BI</span><span>OpenAlex</span><span>Ciência Aberta</span><span>Gênero e ciência</span>
+        </div>
+      </div>
+      <aside class="hero-aside">
+        <div class="big-note">Dados que ajudam a enxergar quem produz conhecimento.</div>
+        <p>Uma investigação sobre produção científica, instituições, gênero e acesso aberto — apresentada por meio de dados e visualizações interativas.</p>
+      </aside>
+    </div>
+
+    <section id="projetos">
+      <div class="section-heading">
+        <div>
+          <div class="kicker">Explore o portfólio</div>
+          <h2 class="section-title">Projetos em destaque</h2>
+        </div>
+      </div>
+      <div class="prose"><p>Uma coleção crescente de projetos de análise de dados, visualização e automação. Esta página apresenta o projeto principal; novos trabalhos podem ser adicionados aos cartões abaixo.</p></div>
+      <div class="project-grid">
+        <a class="project-card" href="#dashboard">
+          <span class="project-number">PROJETO 01 · POWER BI</span>
+          <h3>Cartografia Feminina na Ciência Aberta</h3>
+          <p>Produção científica, autoria feminina e acesso aberto a partir de dados do OpenAlex.</p>
+          <span class="project-link">Explorar dashboard ↗</span>
+        </a>
+        <a class="project-card" href="./projetos/Hashtag_Eletro/index.html" target="_blank" rel="noopener">
+          <span class="project-number">PROJETO 02 · EM BREVE</span>
+          <h3>Próximo projeto</h3>
+          <p>Reserve este espaço para uma nova análise, projeto de SQL, Python ou automação.</p>
+          <span class="project-link">Adicionar projeto ↗</span>
+        </a>
+        <a class="project-card" href="https://github.com/tatianefdmelo-ro" target="_blank" rel="noopener">
+          <span class="project-number">PROJETO 03 · EM BREVE</span>
+          <h3>Laboratório de dados</h3>
+          <p>Apresente aqui outro estudo, incluindo problema, ferramentas utilizadas e resultados.</p>
+          <span class="project-link">Ver repositórios ↗</span>
+        </a>
+      </div>
+    </section>
+
+    <section id="sobre">
+      <div class="kicker">Contexto</div>
+      <h2 class="section-title">Sobre a pesquisa</h2>
+      <div class="prose" style="margin-top:22px">
+        <p>Este projeto investiga a presença e a produção científica de mulheres no campo da Ciência Aberta. A pergunta central é simples de formular e difícil de responder sem dados: mulheres estão produzindo de forma consistente nesse campo? Em quais instituições? Colaborando com quem?</p>
+        <p>O levantamento inicial considerou Brapci, SciELO e Web of Science. O projeto passou a usar o <a href="https://openalex.org" target="_blank" rel="noopener">OpenAlex</a>, uma base acadêmica aberta e gratuita, porque ela permite reproduzir todo o processo de extração sem depender de assinatura institucional.</p>
+      </div>
+      <div class="note"><strong>Nota metodológica:</strong> o gênero das autoras foi <em>inferido</em> a partir do primeiro nome, com a biblioteca gender-guesser. Não se trata de autodeclaração, e o método pode errar, principalmente com nomes unissex. Os resultados devem ser lidos como estimativas.</div>
+    </section>
+
+    <section class="dashboard-section" id="dashboard">
+      <div class="dashboard-inner">
+        <div class="dashboard-topline">
+          <div>
+            <div class="kicker">Explore os dados</div>
+            <h2 class="section-title">Dashboard interativo</h2>
+            <div class="prose" style="margin-top:12px"><p>Explore as visualizações e utilize os filtros diretamente no relatório. A área foi ampliada para dar mais espaço aos gráficos e à navegação.</p></div>
+          </div>
+          <a class="open-report" href="https://app.fabric.microsoft.com/view?r=eyJrIjoiYTJhYjdiYjQtOWU5ZC00MGI1LWEzMGQtNTc1YTAxMGI0OTNkIiwidCI6ImE0ZWJhOGEyLWRiZTQtNDI4Mi05ZWU2LTgyMTNlMmMyZmU3ZSJ9" target="_blank" rel="noopener">Abrir relatório ↗</a>
+        </div>
+        <div class="dashboard-frame-wrap">
+          <iframe title="Cartografia Feminina na Ciência Aberta — relatório Power BI" src="https://app.fabric.microsoft.com/view?r=eyJrIjoiYTJhYjdiYjQtOWU5ZC00MGI1LWEzMGQtNTc1YTAxMGI0OTNkIiwidCI6ImE0ZWJhOGEyLWRiZTQtNDI4Mi05ZWU2LTgyMTNlMmMyZmU3ZSJ9" allowfullscreen loading="lazy"></iframe>
+        </div>
+      </div>
+    </section>
+
+    <section id="temas">
+      <div class="kicker">Recorte de análise</div>
+      <h2 class="section-title">Temas mapeados</h2>
+      <div class="prose" style="margin-top:18px"><p>Cada trabalho foi classificado pela presença literal dos termos abaixo no título ou resumo, e não pela categoria geral atribuída pelo OpenAlex, que se mostrou ampla demais para o recorte desta pesquisa. Um trabalho pode ter mais de um tema.</p></div>
+      <div class="themes-grid">
+        <div class="theme-card"><div class="label">Tema</div><div class="value">Open Access</div></div>
+        <div class="theme-card"><div class="label">Tema</div><div class="value">Open Science</div></div>
+        <div class="theme-card"><div class="label">Tema</div><div class="value">Ciência Aberta</div></div>
+        <div class="theme-card"><div class="label">Tema</div><div class="value">Scientific Communication</div></div>
+      </div>
+    </section>
+
+    <section id="metodologia">
+      <div class="method-grid">
+        <div>
+          <div class="kicker">Transparência e reprodutibilidade</div>
+          <h2 class="section-title">Metodologia e dados abertos</h2>
+          <div class="prose" style="margin-top:20px">
+            <p>O código usado para extrair, limpar e classificar os dados está disponível publicamente, junto com os arquivos CSV finais, para que qualquer pessoa possa auditar ou reproduzir a análise.</p>
+          </div>
+        </div>
+        <div class="repo-card">
+          <h3>Explore o código</h3>
+          <p>Consulte o repositório, os arquivos de dados e as etapas de processamento deste projeto.</p>
+          <a href="https://github.com/tatianefdmelo-ro/Cartografia_Feminina_Ciencia_Aberta/tree/main" target="_blank" rel="noopener">Ver repositório no GitHub ↗</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>Cartografia Feminina na Ciência Aberta · Tatiane Ferro de Melo</span>
+    <span>Fonte de dados: OpenAlex</span>
+  </footer>
+</body>
+</html>
+</html>
