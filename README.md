@@ -2,7 +2,7 @@
 
 Site pessoal com meus projetos de análise de dados, visualização e automação. Sou estudante de Arquivologia (UFF) e atuo com Power BI, Power Automate, Copilot Studio e governança da informação.
 
-**Site:** [preencher: link do GitHub Pages, por exemplo `https://tatianefdmelo-ro.github.io/nome-do-repositorio/`]
+**Site:** https://github.com/tatianefdmelo-ro/Portfolio
 
 ## Projetos
 
@@ -23,19 +23,6 @@ Site pessoal com meus projetos de análise de dados, visualização e automaçã
     └── Hashtag_Eletro/
         ├── index.html
         └── README.md
-```
-
-## Como ver o site localmente
-
-Não precisa instalar nada. Abra o `index.html` no navegador.
-
-Se preferir rodar com um servidor local (útil para testar os links entre páginas):
-
-```bash
-python -m http.server 8000
-```
-
-Depois acesse `http://localhost:8000`.
 
 ## Como publicar no GitHub Pages
 
