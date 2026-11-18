@@ -1,380 +1,424 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
+<!doctype html>
+<html lang="pt-BR" data-theme="light">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Portfólio de Tatiane Ferro de Melo, Analista de Dados Jr. Power BI, Power Automate, SQL, Python, governança da informação e automação de processos.">
-<title>Tatiane Ferro de Melo · Portfólio de Dados</title>
-<style>
-:root {
-  --mint: #DDF8F0;
-  --baby: #BFEFFF;
-  --cyan: #5EDCC6;
-  --teal: #199F91;
-  --teal-text: #0E7A6E;
-  --bg: #F5FBFF;
-  --ink: #243746;
-  --ink-soft: #4A5F6E;
-  --line: #D8E8EF;
-  --white: #FFFFFF;
-  --shadow: 0 16px 44px rgba(36, 55, 70, .08);
-}
-* { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; scroll-padding-top: 84px; }
-body {
-  color: var(--ink);
-  background: var(--bg);
-  font-family: Inter, "Segoe UI", Helvetica, Arial, sans-serif;
-  line-height: 1.65;
-  -webkit-font-smoothing: antialiased;
-}
-a { color: var(--teal-text); text-underline-offset: 4px; }
-a:hover { color: var(--teal); }
-:focus-visible { outline: 3px solid var(--teal); outline-offset: 3px; border-radius: 6px; }
-
-/* Header */
-.site-header {
-  position: sticky; top: 0; z-index: 20;
-  display: flex; align-items: center; justify-content: space-between; gap: 24px;
-  padding: 16px clamp(20px, 5vw, 76px);
-  background: rgba(245, 251, 255, .92); backdrop-filter: blur(14px);
-  border-bottom: 1px solid var(--line);
-}
-.brand { color: var(--ink); text-decoration: none; font-size: 14px; font-weight: 800; letter-spacing: .06em; line-height: 1.25; text-transform: uppercase; }
-.brand span { display: block; color: var(--teal-text); font-size: 10px; font-weight: 700; letter-spacing: .14em; margin-top: 3px; }
-.nav { display: flex; align-items: center; flex-wrap: wrap; gap: clamp(14px, 2.2vw, 30px); }
-.nav a { color: var(--ink-soft); text-decoration: none; font-size: 13px; font-weight: 650; }
-.nav a:hover { color: var(--teal-text); }
-.nav .nav-cta { background: var(--cyan); color: var(--ink); padding: 8px 16px; border-radius: 999px; font-weight: 750; }
-.nav .nav-cta:hover { background: var(--teal); color: white; }
-
-/* Hero */
-.hero {
-  max-width: 1360px; margin: 0 auto;
-  padding: clamp(56px, 8vw, 112px) clamp(22px, 6vw, 88px) 72px;
-  display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(280px, .75fr); gap: 56px; align-items: center;
-}
-.eyebrow { display: inline-flex; align-items: center; gap: 10px; color: var(--teal-text); font-size: 12px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; margin-bottom: 22px; }
-.eyebrow:before { content: ""; width: 28px; height: 3px; border-radius: 3px; background: var(--cyan); }
-h1 { font-family: Georgia, "Times New Roman", serif; font-weight: 400; font-size: clamp(40px, 5.8vw, 76px); line-height: 1.04; letter-spacing: -.04em; }
-h1 span { color: var(--teal); }
-.subtitle { max-width: 600px; margin-top: 24px; color: var(--ink-soft); font-size: clamp(16px, 1.5vw, 19px); }
-.hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
-.btn { display: inline-flex; align-items: center; gap: 8px; padding: 13px 24px; border-radius: 999px; font-size: 14px; font-weight: 750; text-decoration: none; transition: transform .2s ease, background .2s ease, color .2s ease; }
-.btn:hover { transform: translateY(-2px); }
-.btn-primary { background: var(--cyan); color: var(--ink); }
-.btn-primary:hover { background: var(--teal); color: white; }
-.btn-ghost { border: 1.5px solid var(--teal); color: var(--teal-text); background: transparent; }
-.btn-ghost:hover { background: var(--mint); color: var(--teal-text); }
-.hero-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 30px; }
-.hero-tags span { border: 1px solid var(--line); border-radius: 999px; padding: 6px 13px; background: white; color: var(--ink); font-size: 12px; font-weight: 700; }
-
-.hero-panel { display: grid; gap: 14px; }
-.hero-card { padding: 22px 24px; border-radius: 16px; background: var(--white); border: 1px solid var(--line); box-shadow: var(--shadow); }
-.hero-card:nth-child(1) { background: var(--mint); }
-.hero-card:nth-child(2) { background: var(--baby); border-color: #a9e2f5; margin-left: 28px; }
-.hero-card h3 { font-size: 17px; }
-.hero-card p { margin-top: 4px; color: var(--ink-soft); font-size: 14px; }
-
-/* Sections */
-main { width: 100%; }
-section { max-width: 1360px; margin: 0 auto; padding: 72px clamp(22px, 5vw, 76px); }
-.band { max-width: none; background: var(--mint); }
-.band-inner { max-width: 1360px; margin: 0 auto; }
-.kicker { color: var(--teal-text); font-size: 12px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; margin-bottom: 8px; }
-.section-title { font-family: Georgia, "Times New Roman", serif; font-weight: 400; font-size: clamp(28px, 3.2vw, 42px); line-height: 1.15; letter-spacing: -.02em; }
-.prose { max-width: 760px; margin-top: 20px; color: var(--ink-soft); font-size: 16px; }
-.prose p + p { margin-top: 14px; }
-
-/* Sobre */
-.about-grid { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(260px, .8fr); gap: 44px; align-items: start; }
-.facts { display: grid; gap: 12px; }
-.fact { padding: 18px 20px; background: white; border: 1px solid var(--line); border-radius: 14px; }
-.fact .label { color: var(--ink-soft); font-size: 11px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
-.fact .value { margin-top: 4px; font-weight: 650; }
-
-/* Competências */
-.skills-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: 30px; }
-.skill-card { padding: 24px; background: white; border: 1px solid var(--line); border-radius: 16px; }
-.skill-card h3 { font-size: 16px; color: var(--ink); display: flex; align-items: center; gap: 10px; }
-.skill-card h3:before { content: ""; width: 10px; height: 10px; border-radius: 50%; background: var(--cyan); box-shadow: 0 0 0 4px var(--mint); }
-.chips { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 16px; }
-.chips span { padding: 5px 11px; border-radius: 999px; background: var(--bg); border: 1px solid var(--line); font-size: 12.5px; font-weight: 600; }
-
-/* Projetos */
-.project-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; margin-top: 30px; }
-.project-card { display: flex; flex-direction: column; min-height: 250px; padding: 26px; background: white; border: 1px solid var(--line); border-radius: 16px; text-decoration: none; color: var(--ink); transition: transform .2s ease, box-shadow .2s ease; }
-a.project-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); color: var(--ink); }
-.project-number { color: var(--teal-text); font-size: 11px; font-weight: 800; letter-spacing: .14em; }
-.project-card h3 { margin-top: 16px; font-family: Georgia, serif; font-size: 24px; font-weight: 400; line-height: 1.2; }
-.project-card p { margin-top: 10px; color: var(--ink-soft); font-size: 14.5px; }
-.project-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
-.project-tags span { font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 999px; background: var(--mint); color: var(--ink); }
-.project-link { margin-top: auto; padding-top: 20px; color: var(--teal-text); font-size: 13px; font-weight: 800; }
-.project-card.featured { background: linear-gradient(160deg, var(--mint), var(--baby)); border-color: #b7e6ef; }
-.project-card.soon { background: transparent; border-style: dashed; }
-.project-card.soon h3 { color: var(--ink-soft); }
-
-/* Experiência */
-.timeline { margin-top: 32px; display: grid; gap: 18px; position: relative; }
-.job { display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 28px; padding: 26px; background: white; border: 1px solid var(--line); border-radius: 16px; }
-.job-meta .period { color: var(--teal-text); font-size: 12px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
-.job-meta .org { margin-top: 6px; font-weight: 750; }
-.job-meta .role { color: var(--ink-soft); font-size: 14px; }
-.job ul { padding-left: 18px; color: var(--ink-soft); font-size: 14.5px; }
-.job li + li { margin-top: 6px; }
-
-/* Formação */
-.edu-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; margin-top: 30px; }
-.edu-card { padding: 24px; background: white; border: 1px solid var(--line); border-radius: 16px; }
-.edu-card .label { color: var(--teal-text); font-size: 11px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
-.edu-card h3 { margin-top: 10px; font-family: Georgia, serif; font-size: 22px; font-weight: 400; }
-.edu-card p { margin-top: 4px; color: var(--ink-soft); font-size: 14.5px; }
-
-/* Contato */
-.contact-box { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 32px; align-items: center; padding: clamp(28px, 4vw, 48px); background: var(--ink); color: white; border-radius: 22px; }
-.contact-box .kicker { color: var(--cyan); }
-.contact-box h2 { font-family: Georgia, serif; font-weight: 400; font-size: clamp(26px, 3vw, 38px); line-height: 1.15; }
-.contact-box p { margin-top: 12px; color: #C9DAE3; max-width: 560px; }
-.contact-links { display: grid; gap: 10px; }
-.contact-links a { display: inline-flex; justify-content: center; padding: 12px 22px; border-radius: 999px; font-weight: 750; font-size: 14px; text-decoration: none; background: var(--cyan); color: var(--ink); }
-.contact-links a:hover { background: white; color: var(--ink); }
-.contact-links a.alt { background: transparent; color: white; border: 1.5px solid rgba(255,255,255,.4); }
-.contact-links a.alt:hover { background: rgba(255,255,255,.12); color: white; }
-
-footer { max-width: 1360px; margin: 0 auto; padding: 28px clamp(22px, 5vw, 76px) 44px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; color: var(--ink-soft); font-size: 12.5px; }
-
-@media (max-width: 960px) {
-  .skills-grid, .project-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-}
-@media (max-width: 800px) {
-  .hero, .about-grid { grid-template-columns: 1fr; gap: 32px; }
-  .hero-card:nth-child(2) { margin-left: 0; }
-  .job { grid-template-columns: 1fr; gap: 14px; }
-  .edu-grid { grid-template-columns: 1fr; }
-  .contact-box { grid-template-columns: 1fr; }
-}
-@media (max-width: 560px) {
-  .site-header { align-items: flex-start; flex-direction: column; gap: 10px; padding: 14px 20px; }
-  .nav { gap: 10px 16px; }
-  .nav a { font-size: 12.5px; }
-  .hero { padding-top: 44px; padding-bottom: 44px; }
-  section { padding-top: 52px; padding-bottom: 52px; }
-  .skills-grid, .project-grid { grid-template-columns: 1fr; }
-}
-@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#F6FAF8">
+  <meta name="description" content="Portfólio de Tatiane Ferro de Melo: análise de dados, Power BI, Python, automação, inteligência artificial e governança da informação.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Tatiane Ferro de Melo — Data & Intelligence Lab">
+  <meta property="og:description" content="Projetos e experiências na interseção entre dados, automação, inteligência artificial e informação.">
+  <title>Tatiane Ferro de Melo — Data & Intelligence Lab</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f6faf8; --paper: #ffffff; --tint: #e8f6f2; --tint-blue:#e7f3fb;
+      --ink:#19363d; --ink-strong:#112d34; --secondary:#536c70; --muted:#718789;
+      --line:#cfdfdc; --line-dark:#a7c5bd; --accent:#128c85; --accent-strong:#006e6d;
+      --accent-pale:#c9eee6; --baby:#bfebfa; --deep:#153b46; --deep-2:#1b5156;
+      --cyan:#43d2c1; --focus:#1965b8; --header:rgba(246,250,248,.92);
+      --shadow:0 12px 44px rgba(20,54,61,.06);
+    }
+    html[data-theme="dark"] {
+      color-scheme: dark;
+      --bg:#101f25; --paper:#162a31; --tint:#193934; --tint-blue:#1b3745;
+      --ink:#d5ebe9; --ink-strong:#f1fbf9; --secondary:#a8c4c6; --muted:#91afb0;
+      --line:#37545a; --line-dark:#4c7778; --accent:#59ddc7; --accent-strong:#69e9d5;
+      --accent-pale:#255349; --baby:#375d6b; --deep:#0d272d; --deep-2:#16434a;
+      --cyan:#6fe8d7; --focus:#9bd9ff; --header:rgba(16,31,37,.94);
+      --shadow:0 12px 44px rgba(0,0,0,.12);
+    }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; scroll-padding-top:90px; }
+    body { margin:0; background:var(--bg); color:var(--ink); font-family:'DM Sans',system-ui,-apple-system,'Segoe UI',sans-serif; line-height:1.55; overflow-x:hidden; }
+    a { color:inherit; text-decoration:none; }
+    button { font:inherit; }
+    button, a { -webkit-tap-highlight-color:transparent; }
+    :focus-visible { outline:3px solid var(--focus); outline-offset:4px; }
+    ::selection { background:var(--accent-pale); color:var(--ink-strong); }
+    .mono { font-family:'IBM Plex Mono',Consolas,monospace; }
+    .display { font-family:'Space Grotesk','DM Sans',sans-serif; }
+    .container { width:min(1240px,calc(100% - 88px)); margin-inline:auto; }
+    .progress { position:fixed; top:0; left:0; z-index:101; height:3px; width:0; background:var(--accent); transition:width .08s linear; }
+    .site-header { position:sticky; top:0; z-index:90; border-bottom:1px solid var(--line); background:var(--header); backdrop-filter:blur(18px); }
+    .header-inner { min-height:79px; display:flex; align-items:center; justify-content:space-between; gap:22px; }
+    .brand { display:flex; align-items:center; gap:12px; min-width:0; }
+    .brand-mark { width:37px; height:37px; display:grid; place-items:center; background:var(--deep); color:#aaf4e4; border:1px solid #35766e; font:600 13px 'IBM Plex Mono',monospace; letter-spacing:-.08em; }
+    .brand-text { display:flex; flex-direction:column; line-height:1.18; }
+    .brand-text strong { color:var(--ink-strong); font-family:'Space Grotesk',sans-serif; font-size:14px; letter-spacing:-.025em; }
+    .brand-text small { font:500 9px 'IBM Plex Mono',monospace; text-transform:uppercase; color:var(--muted); letter-spacing:.13em; margin-top:6px; }
+    .nav { display:flex; align-items:center; gap:26px; }
+    .nav a { font:500 12px 'IBM Plex Mono',monospace; color:var(--secondary); transition:color .2s; }
+    .nav a:hover, .nav a[aria-current="location"] { color:var(--accent-strong); }
+    .nav-tools { display:flex; align-items:center; gap:12px; }
+    .icon-button { border:1px solid var(--line); width:39px; height:39px; background:var(--paper); color:var(--ink); cursor:pointer; display:grid; place-items:center; transition:border-color .2s,background .2s; }
+    .icon-button:hover { background:var(--tint); border-color:var(--accent); }
+    .outline-button, .solid-button { display:inline-flex; align-items:center; justify-content:center; gap:12px; padding:13px 17px; min-height:44px; font:600 12px 'IBM Plex Mono',monospace; transition:transform .2s,background .2s,border-color .2s; }
+    .outline-button { border:1px solid var(--line-dark); background:transparent; color:var(--ink-strong); }
+    .solid-button { border:1px solid var(--accent-strong); background:var(--accent-strong); color:#fff; }
+    html[data-theme="dark"] .solid-button { color:#103631; }
+    .outline-button:hover, .solid-button:hover { transform:translateY(-2px); }
+    .outline-button:hover { border-color:var(--accent); background:var(--tint); }
+    .solid-button:hover { background:var(--accent); }
+    .menu-button { display:none; }
+    .top-strip { border-bottom:1px solid var(--line); }
+    .strip-inner { min-height:40px; display:flex; align-items:center; justify-content:space-between; gap:12px; font:500 10px 'IBM Plex Mono',monospace; color:var(--muted); letter-spacing:.055em; }
+    .strip-inner span + span { display:flex; gap:8px; align-items:center; }
+    .green-dot { display:inline-block; width:7px; height:7px; background:#1ec49e; border-radius:50%; box-shadow:0 0 0 4px rgba(30,196,158,.12); }
+    .hero { position:relative; isolation:isolate; padding:94px 0 94px; overflow:hidden; border-bottom:1px solid var(--line); }
+    .hero:before { content:""; z-index:-1; position:absolute; inset:0; background-image:linear-gradient(to right,rgba(95,151,151,.05) 1px,transparent 1px),linear-gradient(to bottom,rgba(95,151,151,.05) 1px,transparent 1px); background-size:62px 62px; mask-image:linear-gradient(90deg,transparent,black 36%,black 100%); pointer-events:none; }
+    .hero-layout { display:grid; grid-template-columns:1.12fr .88fr; gap:66px; align-items:center; }
+    .eyebrow { font:600 11px 'IBM Plex Mono',monospace; text-transform:uppercase; letter-spacing:.135em; color:var(--accent-strong); display:flex; gap:12px; align-items:center; margin:0 0 28px; }
+    .eyebrow:before { content:""; width:28px; height:1px; background:var(--accent); flex:0 0 auto; }
+    h1,h2,h3,p { margin-top:0; }
+    h1 { font-size:clamp(51px,5.4vw,85px); line-height:1.005; font-weight:700; letter-spacing:-.07em; color:var(--ink-strong); max-width:820px; margin-bottom:26px; }
+    h1 em { font-style:normal; color:var(--accent-strong); }
+    .hero-description { font-size:17px; color:var(--secondary); max-width:560px; line-height:1.75; margin:0 0 32px; }
+    .hero-actions { display:flex; gap:12px; flex-wrap:wrap; }
+    .hero-footnote { display:flex; flex-wrap:wrap; gap:14px 20px; align-items:center; margin-top:48px; color:var(--muted); font:500 10px 'IBM Plex Mono',monospace; text-transform:uppercase; letter-spacing:.07em; }
+    .hero-footnote span + span:before { content:"/"; margin-right:20px; color:var(--line-dark); }
+    .art { position:relative; min-width:0; }
+    .art-caption { display:flex; justify-content:space-between; gap:8px; margin-bottom:12px; font:500 10px 'IBM Plex Mono',monospace; letter-spacing:.06em; color:var(--muted); }
+    .lab-board { position:relative; background:var(--paper); border:1px solid var(--line-dark); box-shadow:16px 16px 0 var(--tint); overflow:hidden; }
+    .lab-board:before { content:""; position:absolute; inset:0; pointer-events:none; background-image:radial-gradient(var(--line) .9px,transparent .9px); background-size:16px 16px; opacity:.62; }
+    .board-top { position:relative; height:48px; padding:0 18px; display:flex; justify-content:space-between; align-items:center; background:var(--tint); border-bottom:1px solid var(--line); color:var(--secondary); font:500 10px 'IBM Plex Mono',monospace; }
+    .board-controls { display:flex; gap:6px; }
+    .board-controls i { width:7px; height:7px; border:1px solid var(--line-dark); background:var(--paper); display:block; }
+    .board-main { padding:30px 28px 18px; min-height:370px; position:relative; }
+    .flow-figure { display:block; width:100%; height:auto; max-height:315px; }
+    .node-a { animation:float 5.5s ease-in-out infinite; transform-origin:center; transform-box:fill-box; }
+    .node-b { animation:float 5.5s ease-in-out infinite -2s; transform-origin:center; transform-box:fill-box; }
+    .data-flow { stroke-dasharray:7 7; animation:moveDash 10s linear infinite; }
+    .board-bottom { border-top:1px solid var(--line); display:flex; justify-content:space-between; gap:12px; padding:14px 18px; background:var(--paper); color:var(--muted); font:500 10px 'IBM Plex Mono',monospace; }
+    .board-bottom strong { color:var(--accent-strong); font-weight:600; }
+    .edge-label { position:absolute; top:45%; right:-24px; writing-mode:vertical-rl; color:var(--muted); font:500 9px 'IBM Plex Mono',monospace; letter-spacing:.14em; }
+    .signal-band { border-bottom:1px solid var(--line); }
+    .signal-grid { display:grid; grid-template-columns:1.25fr repeat(4,1fr); }
+    .signal-title, .signal-item { padding:28px 22px; border-left:1px solid var(--line); min-height:112px; }
+    .signal-title { padding-left:0; border-left:0; display:flex; align-items:center; font-size:19px; line-height:1.25; letter-spacing:-.045em; color:var(--ink-strong); font-weight:600; }
+    .signal-item { display:flex; flex-direction:column; justify-content:center; gap:9px; }
+    .signal-item small { color:var(--muted); font:500 10px 'IBM Plex Mono',monospace; }
+    .signal-item strong { font:600 14px 'Space Grotesk',sans-serif; color:var(--ink-strong); }
+    .section { padding:112px 0; }
+    .section-head { display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:end; margin-bottom:39px; }
+    .section-number { color:var(--accent-strong); font:600 11px 'IBM Plex Mono',monospace; letter-spacing:.13em; text-transform:uppercase; display:block; margin-bottom:16px; }
+    h2 { font:600 clamp(37px,4.1vw,60px)/1.08 'Space Grotesk',sans-serif; letter-spacing:-.065em; color:var(--ink-strong); margin-bottom:0; }
+    .section-intro { max-width:450px; color:var(--secondary); font-size:15px; line-height:1.75; margin:0 0 4px auto; }
+    .projects-area { background:var(--paper); border-bottom:1px solid var(--line); }
+    .filters { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:25px; }
+    .filter { border:1px solid var(--line); background:transparent; color:var(--secondary); padding:10px 15px; cursor:pointer; font:600 11px 'IBM Plex Mono',monospace; transition:color .2s,border-color .2s,background .2s; }
+    .filter:hover { color:var(--accent-strong); border-color:var(--accent); }
+    .filter[aria-pressed="true"] { color:#fff; background:var(--deep); border-color:var(--deep); }
+    .project-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; }
+    .project-card { border:1px solid var(--line); background:var(--bg); overflow:hidden; min-width:0; display:flex; flex-direction:column; transition:transform .25s,border-color .25s,box-shadow .25s; }
+    .project-card:hover { transform:translateY(-4px); border-color:var(--line-dark); box-shadow:var(--shadow); }
+    .project-card[hidden] { display:none !important; }
+    .project-visual { position:relative; height:272px; overflow:hidden; border-bottom:1px solid var(--line); display:grid; place-items:center; }
+    .project-visual.visual-mapping { background:linear-gradient(135deg,#e0f6ef 0%,#e2f4f7 100%); }
+    .project-visual.visual-sales { background:linear-gradient(135deg,#d9f0f3 0%,#dce7f6 100%); }
+    .project-visual.visual-research { background:linear-gradient(135deg,#dfeeea 0%,#eef3e5 100%); }
+    .project-visual.visual-process { background:linear-gradient(135deg,#e7f5ec 0%,#dcecf6 100%); }
+    html[data-theme="dark"] .project-visual { filter:brightness(.84); }
+    .project-visual-label { position:absolute; top:18px; left:19px; font:600 10px 'IBM Plex Mono',monospace; color:#365d65; background:rgba(255,255,255,.72); padding:7px 9px; border:1px solid rgba(79,136,134,.14); z-index:2; }
+    .project-visual svg { width:100%; height:100%; }
+    .project-body { padding:28px 29px 29px; flex:1; display:flex; flex-direction:column; }
+    .project-top { display:flex; justify-content:space-between; gap:12px; align-items:center; margin-bottom:18px; }
+    .project-id { font:500 10px 'IBM Plex Mono',monospace; color:var(--muted); text-transform:uppercase; letter-spacing:.05em; }
+    .project-status { border:1px solid var(--line-dark); padding:5px 8px; font:600 9px 'IBM Plex Mono',monospace; color:var(--accent-strong); text-transform:uppercase; letter-spacing:.04em; }
+    .project-card h3 { color:var(--ink-strong); font:600 clamp(24px,2.6vw,34px)/1.18 'Space Grotesk',sans-serif; letter-spacing:-.055em; margin:0 0 13px; }
+    .project-card p { color:var(--secondary); font-size:14px; line-height:1.75; margin:0 0 23px; }
+    .project-tags { display:flex; gap:7px; flex-wrap:wrap; margin-top:auto; }
+    .project-tags span { border:1px solid var(--line); padding:6px 9px; color:var(--secondary); font:500 10px 'IBM Plex Mono',monospace; background:var(--paper); }
+    .project-links { border-top:1px solid var(--line); margin-top:25px; padding-top:17px; display:flex; gap:20px; align-items:center; flex-wrap:wrap; }
+    .project-links a { color:var(--accent-strong); font:600 12px 'IBM Plex Mono',monospace; }
+    .project-links a:hover { text-decoration:underline; text-underline-offset:4px; }
+    .project-links span { font:500 11px 'IBM Plex Mono',monospace; color:var(--muted); }
+    .research-band { background:var(--deep); color:#d7f3ee; border-bottom:1px solid #366366; }
+    .research-inner { display:grid; grid-template-columns:.62fr 1.38fr; gap:55px; align-items:start; padding:68px 0; }
+    .research-inner .section-number { color:#83e8d9; margin-top:5px; }
+    .research-inner blockquote { margin:0; font:500 clamp(23px,2.65vw,39px)/1.35 'Space Grotesk',sans-serif; letter-spacing:-.04em; }
+    .research-inner em { color:#7edecf; font-style:normal; }
+    .method { border-bottom:1px solid var(--line); }
+    .method-grid { display:grid; grid-template-columns:repeat(4,1fr); border-top:1px solid var(--line); margin-top:40px; }
+    .method-step { padding:28px 23px 9px; min-height:205px; border-left:1px solid var(--line); }
+    .method-step:first-child { border-left:0; padding-left:0; }
+    .method-step .count { color:var(--accent-strong); font:600 12px 'IBM Plex Mono',monospace; margin-bottom:28px; display:block; }
+    .method-step h3 { color:var(--ink-strong); font:600 20px 'Space Grotesk',sans-serif; letter-spacing:-.04em; margin-bottom:10px; }
+    .method-step p { color:var(--secondary); font-size:13px; line-height:1.7; max-width:230px; }
+    .method-note { display:flex; align-items:center; flex-wrap:wrap; gap:12px; margin-top:29px; font:500 11px 'IBM Plex Mono',monospace; color:var(--muted); }
+    .method-note code { background:var(--tint); padding:7px 10px; color:var(--accent-strong); font-size:11px; }
+    .skills-section { background:var(--tint-blue); border-bottom:1px solid var(--line); }
+    .skill-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1px; border:1px solid var(--line); background:var(--line); }
+    .skill-card { padding:34px 33px; background:var(--paper); min-height:255px; }
+    .skill-card header { display:flex; gap:16px; align-items:center; margin-bottom:20px; }
+    .skill-symbol { display:grid; place-items:center; width:42px; height:42px; border:1px solid var(--line-dark); color:var(--accent-strong); font:600 15px 'IBM Plex Mono',monospace; background:var(--tint); }
+    .skill-card h3 { font:600 21px 'Space Grotesk',sans-serif; letter-spacing:-.04em; margin:0; color:var(--ink-strong); }
+    .skill-card p { color:var(--secondary); font-size:14px; margin:0 0 23px; max-width:420px; }
+    .skill-labels { display:flex; gap:8px; flex-wrap:wrap; }
+    .skill-labels span { padding:7px 9px; border:1px solid var(--line); font:500 10px 'IBM Plex Mono',monospace; color:var(--secondary); }
+    .about-section { border-bottom:1px solid var(--line); }
+    .about-layout { display:grid; grid-template-columns:.86fr 1.14fr; gap:100px; }
+    .about-sidebar { position:relative; }
+    .about-square { margin-top:35px; width:min(100%,300px); aspect-ratio:1.15; background:var(--tint); border:1px solid var(--line); position:relative; overflow:hidden; }
+    .about-square:before { content:""; position:absolute; width:180%; height:1px; left:-25%; top:50%; background:var(--line-dark); transform:rotate(-37deg); box-shadow:0 29px 0 var(--line-dark),0 -29px 0 var(--line-dark),0 58px 0 var(--line-dark),0 -58px 0 var(--line-dark); }
+    .about-square .monogram { position:absolute; inset:0; display:grid; place-items:center; font:600 clamp(90px,13vw,165px) 'Space Grotesk',sans-serif; letter-spacing:-.13em; color:var(--deep-2); opacity:.96; }
+    .about-square small { position:absolute; bottom:15px; left:15px; font:500 10px 'IBM Plex Mono',monospace; color:var(--secondary); background:var(--paper); padding:5px 7px; }
+    .about-copy .lead { font:500 clamp(23px,2.9vw,35px)/1.4 'Space Grotesk',sans-serif; letter-spacing:-.045em; color:var(--ink-strong); margin-bottom:29px; }
+    .about-copy p:not(.lead) { font-size:15px; line-height:1.86; color:var(--secondary); margin-bottom:21px; }
+    .timeline { border-top:1px solid var(--line); margin-top:37px; }
+    .timeline-row { display:grid; grid-template-columns:105px 1fr; gap:28px; padding:20px 0; border-bottom:1px solid var(--line); }
+    .timeline-row time { font:500 11px 'IBM Plex Mono',monospace; color:var(--accent-strong); }
+    .timeline-row strong { display:block; color:var(--ink-strong); font-size:15px; }
+    .timeline-row small { display:block; color:var(--muted); font-size:13px; margin-top:5px; }
+    .contact-section { padding:100px 0 95px; background:var(--tint); }
+    .contact-panel { display:grid; grid-template-columns:1.25fr .75fr; gap:55px; align-items:end; }
+    .contact-panel h2 { max-width:760px; font-size:clamp(41px,5vw,70px); }
+    .contact-panel h2 span { color:var(--accent-strong); }
+    .contact-panel p { margin:0 0 29px; color:var(--secondary); line-height:1.75; font-size:15px; }
+    .contact-links { display:grid; gap:9px; }
+    .contact-links a { padding:13px 0; border-bottom:1px solid var(--line-dark); display:flex; justify-content:space-between; gap:12px; font:600 12px 'IBM Plex Mono',monospace; }
+    .contact-links a:hover { color:var(--accent-strong); }
+    .site-footer { background:var(--deep); color:#a6c3c1; }
+    .footer-inner { padding:29px 0; display:flex; justify-content:space-between; gap:20px; flex-wrap:wrap; align-items:center; font:500 11px 'IBM Plex Mono',monospace; }
+    .footer-inner strong { color:#ebfaf7; }
+    .footer-inner a:hover { color:#7ee3d2; }
+    @keyframes moveDash { to { stroke-dashoffset:-140; } }
+    @keyframes float { 0%,100% { transform:translateY(0) } 50% { transform:translateY(-4px) } }
+    @media (max-width:1040px) {
+      .container { width:min(100% - 56px,1240px); }
+      .hero-layout { gap:32px; }
+      .hero { padding:72px 0; }
+      h1 { font-size:clamp(46px,6vw,68px); }
+      .nav { gap:14px; }
+      .signal-grid { grid-template-columns:repeat(4,1fr); }
+      .signal-title { grid-column:1 / -1; border-bottom:1px solid var(--line); min-height:auto; padding:18px 0; }
+      .signal-item:first-of-type { border-left:0; padding-left:0; }
+      .signal-item { padding:19px 15px; min-height:90px; }
+      .about-layout { gap:58px; }
+      .section { padding:85px 0; }
+    }
+    @media (max-width:760px) {
+      .container { width:calc(100% - 38px); }
+      .header-inner { min-height:66px; }
+      .header-cta { display:none; }
+      .menu-button { display:grid; }
+      .nav { position:absolute; top:65px; right:0; left:0; display:none; flex-direction:column; align-items:stretch; padding:14px 19px 22px; background:var(--bg); border-bottom:1px solid var(--line); gap:0; box-shadow:0 12px 24px rgba(0,0,0,.04); }
+      .nav.is-open { display:flex; }
+      .nav a { padding:13px 5px; border-bottom:1px solid var(--line); }
+      .strip-inner { font-size:9px; }
+      .strip-inner span:last-child { display:none; }
+      .hero { padding:61px 0 60px; }
+      .hero-layout { grid-template-columns:1fr; gap:47px; }
+      h1 { font-size:clamp(49px,11vw,72px); }
+      .hero-description { font-size:15px; }
+      .hero-footnote { margin-top:35px; }
+      .art { max-width:560px; }
+      .edge-label { display:none; }
+      .lab-board { box-shadow:9px 9px 0 var(--tint); }
+      .board-main { min-height:auto; padding:23px 15px 10px; }
+      .signal-grid { grid-template-columns:repeat(2,1fr); }
+      .signal-item:nth-of-type(3) { border-left:0; }
+      .section-head { grid-template-columns:1fr; gap:18px; margin-bottom:31px; }
+      .section-intro { margin:0; }
+      .project-grid { grid-template-columns:1fr; }
+      .project-visual { height:245px; }
+      .research-inner, .contact-panel, .about-layout { grid-template-columns:1fr; gap:25px; }
+      .research-inner { padding:48px 0; }
+      .method-grid { grid-template-columns:repeat(2,1fr); }
+      .method-step:nth-child(3) { border-left:0; padding-left:0; border-top:1px solid var(--line); }
+      .method-step:nth-child(4) { border-top:1px solid var(--line); }
+      .skill-grid { grid-template-columns:1fr; }
+      .skill-card { min-height:auto; }
+      .about-square { margin-top:15px; width:220px; }
+      .contact-section { padding:68px 0; }
+    }
+    @media (max-width:460px) {
+      .brand-text strong { font-size:12px; }
+      .brand-text small { font-size:8px; }
+      .nav-tools { gap:7px; }
+      .icon-button { width:35px; height:35px; }
+      .hero-actions { flex-direction:column; align-items:stretch; }
+      .hero-actions a { justify-content:space-between; }
+      .hero-footnote span + span:before { margin-right:9px; }
+      .project-body { padding:23px 20px; }
+      .method-grid { grid-template-columns:1fr; }
+      .method-step { border-left:0; border-top:1px solid var(--line); padding:22px 0; min-height:auto; }
+      .method-step:first-child { border-top:0; }
+      .method-step:nth-child(4) { padding-left:0; }
+      .method-step .count { margin-bottom:12px; }
+      .skill-card { padding:25px 22px; }
+      .timeline-row { grid-template-columns:84px 1fr; gap:12px; }
+      .footer-inner { flex-direction:column; align-items:flex-start; }
+    }
+    @media (prefers-reduced-motion:reduce) {
+      html { scroll-behavior:auto; }
+      *,*::before,*::after { animation-duration:.01ms!important; transition-duration:.01ms!important; }
+    }
+  </style>
 </head>
-<body>
+<body id="topo">
+  <div class="progress" id="scroll-progress" aria-hidden="true"></div>
   <header class="site-header">
-    <a class="brand" href="#inicio">Tatiane Ferro de Melo<span>Portfólio de dados</span></a>
-    <nav class="nav" aria-label="Navegação principal">
-      <a href="#sobre">Sobre</a>
-      <a href="#competencias">Competências</a>
-      <a href="#projetos">Projetos</a>
-      <a href="#experiencia">Experiência</a>
-      <a href="#formacao">Formação</a>
-      <a class="nav-cta" href="#contato">Contato</a>
-    </nav>
-  </header>
-
-  <main>
-    <div class="hero" id="inicio">
-      <div>
-        <div class="eyebrow">Dados · Automação · IA</div>
-        <h1>Transformando <span>dados em conhecimento.</span></h1>
-        <p class="subtitle">Oi! Eu me chamo Tatiane, sou Analista de Dados Jr. com formação em Arquivologia. Construo dashboards em Power BI, automatizo fluxos de trabalho e organizo informação para apoiar decisões de negócio.</p>
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="#projetos">Explorar projetos</a>
-          <a class="btn btn-ghost" href="#sobre">Sobre mim</a>
-        </div>
-        <div class="hero-tags">
-          <span>Power BI</span><span>Power Automate</span><span>SQL</span><span>Python</span><span>Governança</span>
-        </div>
+    <div class="container header-inner">
+      <a class="brand" href="#topo" aria-label="Página inicial — Tatiane Ferro de Melo">
+        <span class="brand-mark">TF.</span>
+        <span class="brand-text"><strong>Tatiane Ferro de Melo</strong><small>Data & Intelligence Lab</small></span>
+      </a>
+      <nav class="nav" id="main-nav" aria-label="Menu principal">
+        <a href="#projetos">Projetos</a><a href="#metodo">Método</a><a href="#competencias">Competências</a><a href="#sobre">Sobre</a><a href="#contato">Contato</a>
+      </nav>
+      <div class="nav-tools">
+        <button class="icon-button" id="theme-toggle" type="button" aria-label="Ativar modo escuro" title="Alternar tema">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 15.6A8 8 0 0 1 8.4 4a8 8 0 1 0 11.6 11.6Z"/></svg>
+        </button>
+        <a class="outline-button header-cta" href="https://github.com/tatianefdmelo-ro" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+        <button class="icon-button menu-button" id="menu-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="main-nav" type="button">
+          <svg width="19" height="19" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.7" fill="none" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
       </div>
-      <aside class="hero-panel" aria-label="Áreas de atuação">
-        <div class="hero-card">
-          <h3>Power BI</h3>
-          <p>Dashboards, modelagem de dados e indicadores (KPIs).</p>
-        </div>
-        <div class="hero-card">
-          <h3>Automação de processos</h3>
-          <p>Power Automate, RPA e assistentes virtuais no Copilot Studio.</p>
-        </div>
-        <div class="hero-card">
-          <h3>Governança da informação</h3>
-          <p>Gestão documental, qualidade de dados e rastreabilidade.</p>
-        </div>
-      </aside>
     </div>
-
-    <section id="sobre">
-      <div class="about-grid">
+  </header>
+  <main>
+    <div class="top-strip"><div class="container strip-inner"><span>PORTFOLIO / SELECTED WORK / 2026</span><span><i class="green-dot" aria-hidden="true"></i> Dados · Automação · IA · Gestão da Informação</span></div></div>
+    <section class="hero" aria-labelledby="hero-heading">
+      <div class="container hero-layout">
         <div>
-          <div class="kicker">Apresentação</div>
-          <h2 class="section-title">Sobre mim</h2>
-          <div class="prose">
-            <p>Atuo com análise de dados, automação de processos e governança da informação. Minha rotina inclui construir dashboards e KPIs em Power BI, tratar e modelar dados e automatizar fluxos com Power Automate e Microsoft Copilot Studio, apoiada em uma base sólida de Excel avançado (Power Query e VBA), SharePoint e SQL.</p>
-            <p>Minha trajetória em Arquivologia me dá um olhar cuidadoso para organização, qualidade e rastreabilidade da informação, algo que levo para os projetos de dados.</p>
-            <p>Hoje foco em iniciativas de automação, integração de sistemas e soluções analíticas voltadas à eficiência operacional. Tenho interesse em expandir minha atuação em Data Analytics, Business Intelligence, Engenharia de Dados e Inteligência Artificial aplicada a processos corporativos.</p>
-          </div>
+          <p class="eyebrow">Construindo soluções a partir da informação</p>
+          <h1 id="hero-heading" class="display">Dados com <em>contexto.</em><br>Ideias com impacto.</h1>
+          <p class="hero-description">Olá, sou Tatiane. Trabalho na interseção entre análise de dados, automação e gestão da informação — transformando processos complexos em soluções mais claras, conectadas e úteis.</p>
+          <div class="hero-actions"><a class="solid-button" href="#projetos">Explorar projetos <span aria-hidden="true">↗</span></a><a class="outline-button" href="#sobre">Conhecer minha trajetória <span aria-hidden="true">↓</span></a></div>
+          <div class="hero-footnote"><span>Power BI</span><span>Python</span><span>Power Automate</span><span>IA aplicada</span></div>
         </div>
-        <div class="facts">
-          <div class="fact"><div class="label">Atuação atual</div><div class="value">Estagiária na Petros, Gestão Documental e dados</div></div>
-          <div class="fact"><div class="label">Formação</div><div class="value">Arquivologia, UFF (em andamento)</div></div>
-          <div class="fact"><div class="label">Idioma</div><div class="value">Inglês avançado/fluente</div></div>
-          <div class="fact"><div class="label">Localização</div><div class="value">Rio de Janeiro, RJ</div></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="band" id="competencias">
-      <div class="band-inner">
-        <div class="kicker">Ferramentas e conhecimentos</div>
-        <h2 class="section-title">Competências técnicas</h2>
-        <div class="skills-grid">
-          <div class="skill-card">
-            <h3>Análise e visualização</h3>
-            <div class="chips"><span>Power BI</span><span>DAX</span><span>Modelagem de dados</span><span>Dashboards executivos</span><span>KPIs</span></div>
-          </div>
-          <div class="skill-card">
-            <h3>Dados e programação</h3>
-            <div class="chips"><span>SQL</span><span>Python</span><span>ETL</span><span>Excel avançado</span><span>Power Query</span><span>VBA</span><span>Tabelas dinâmicas</span></div>
-          </div>
-          <div class="skill-card">
-            <h3>Automação e IA</h3>
-            <div class="chips"><span>Power Automate</span><span>Power Automate Desktop (RPA)</span><span>Copilot Studio</span><span>Agentes de IA</span><span>Assistentes virtuais</span></div>
-          </div>
-          <div class="skill-card">
-            <h3>Cloud</h3>
-            <div class="chips"><span>Google Cloud Platform</span><span>BigQuery</span><span>Cloud Storage</span></div>
-          </div>
-          <div class="skill-card">
-            <h3>Governança e informação</h3>
-            <div class="chips"><span>Governança de dados</span><span>Qualidade de dados</span><span>Gestão documental</span><span>Gestão informacional</span><span>SharePoint Online</span></div>
-          </div>
-          <div class="skill-card">
-            <h3>Melhoria de processos</h3>
-            <div class="chips"><span>Melhoria contínua</span><span>Transformação digital</span><span>Indicadores de performance</span></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="projetos">
-      <div class="kicker">Explore o portfólio</div>
-      <h2 class="section-title">Projetos em destaque</h2>
-      <div class="prose"><p>Projetos de análise de dados, visualização interativa e automação. Novos trabalhos serão adicionados ao longo do tempo.</p></div>
-      <div class="project-grid">
-        <a class="project-card featured" href="./projetos/Cartografia_Feminina_Ciencia_Aberta/index.html" target="_blank"> 
-          <span class="project-number">PROJETO 01 · POWER BI & PYTHON</span>
-          <h3>Cartografia Feminina na Ciência Aberta</h3>
-          <p>Mapeamento da produção científica, das instituições e das redes de colaboração de mulheres pesquisadoras em Ciência Aberta (2015–2026), com dados do OpenAlex.</p>
-          <div class="project-tags"><span>Power BI</span><span>OpenAlex</span><span>Python</span></div>
-          <span class="project-link">Explorar projeto ↗</span>
-        </a><a class="project-card soon" href="./projetos/Hashtag_Eletro/index.html" target="_blank" rel="noopener">
-          <span class="project-number">PROJETO 02 · POWER BI & JUPYTER NOTEBOOK</span>
-          <h3>Hashtag Eletro — Análise de Dados de Vendas</h3>
-          <p>Projeto de análise de dados de vendas para identificar o desempenho comercial, os produtos mais vendidos e oportunidades de melhoria nos resultados.</p>
-          <span class="project-link">Ver repositórios ↗</span>
-        </a>
-        <div class="project-card soon">
-          <span class="project-number">PROJETO 03 · EM BREVE</span>
-          <h3>Próximo projeto</h3>
-          <p>Espaço reservado para uma nova análise, projeto de SQL, Python ou automação.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="band" id="experiencia">
-      <div class="band-inner">
-        <div class="kicker">Trajetória</div>
-        <h2 class="section-title">Experiência profissional</h2>
-        <div class="timeline">
-          <article class="job">
-            <div class="job-meta">
-              <div class="period">2025 – Atual</div>
-              <div class="org">Petros</div>
-              <div class="role">Estagiária</div>
+        <aside class="art" aria-label="Ilustração conceitual do fluxo entre dados, análise e decisões">
+          <div class="art-caption"><span>FIG 001 · DATA SYSTEM</span><span>DIAGRAMA CONCEITUAL</span></div>
+          <div class="lab-board">
+            <div class="board-top"><span>lab / information-flow.svg</span><div class="board-controls" aria-hidden="true"><i></i><i></i><i></i></div></div>
+            <div class="board-main">
+              <svg class="flow-figure" viewBox="0 0 450 320" role="img" aria-labelledby="figure-title figure-desc" xmlns="http://www.w3.org/2000/svg">
+                <title id="figure-title">Fluxo de trabalho entre dados e inteligência</title>
+                <desc id="figure-desc">Diagrama de quatro etapas: fontes, processamento, visualização e decisões.</desc>
+                <defs><linearGradient id="diagramGrad" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#a0efe0"/><stop offset="1" stop-color="#c3e9ff"/></linearGradient></defs>
+                <path d="M87 78H192M264 78h101M87 230h105M264 230h101M228 114v80" stroke="#749ca0" stroke-width="1.6" fill="none" class="data-flow"/>
+                <path d="M87 78v152m278-152v152" stroke="#b2d0cc" stroke-width="1.5" fill="none" stroke-dasharray="3 7"/>
+                <circle cx="87" cy="78" r="38" fill="#e8fbf4" stroke="#51a99e" stroke-width="1.8" class="node-a"/><circle cx="87" cy="78" r="24" stroke="#a2cfc7" fill="none"/><path d="M74 76h27M74 83h21M74 69h15" stroke="#267c79" stroke-width="2" stroke-linecap="round"/><circle cx="103" cy="64" r="5" fill="#55c5b6"/>
+                <rect x="192" y="42" width="72" height="72" fill="url(#diagramGrad)" stroke="#388e8a" stroke-width="1.8" class="node-b"/><path d="M208 88l12-24 9 16 9-12 10 20" stroke="#2f777d" fill="none" stroke-width="2"/><path d="M208 95h40" stroke="#2f777d" stroke-width="2"/>
+                <circle cx="365" cy="78" r="38" fill="#d3edf9" stroke="#5f9fbc" stroke-width="1.8" class="node-a"/><path d="M348 89V78h8v11m5 0V67h8v22m5 0V73h8v16" fill="none" stroke="#276b8a" stroke-width="2.7"/>
+                <circle cx="87" cy="230" r="26" fill="#fff" stroke="#7ea9aa" stroke-width="1.6"/><path d="M76 230h22m-11-11v22" stroke="#408c8a" stroke-width="2"/>
+                <rect x="190" y="195" width="75" height="70" fill="#e1f3ed" stroke="#63ada0" stroke-width="1.8"/><path d="M204 248l11-15 11 6 12-23 12 7" fill="none" stroke="#277e78" stroke-width="2.4" stroke-linecap="square"/><circle cx="215" cy="233" r="3" fill="#277e78"/><circle cx="238" cy="216" r="3" fill="#277e78"/>
+                <circle cx="365" cy="230" r="37" fill="#e6f7f2" stroke="#479c90" stroke-width="1.8"/><circle cx="365" cy="230" r="22" fill="none" stroke="#a5d4c8"/><circle cx="365" cy="230" r="8" fill="#31897d"/><path d="M365 186v-9m0 106v-9m44-44h9m-106 0h9" stroke="#388d86" stroke-width="1.5"/>
+                <g fill="#47747b" font-family="monospace" font-size="10" text-anchor="middle"><text x="87" y="134">FONTES</text><text x="228" y="134">ETL</text><text x="365" y="134">ANÁLISE</text><text x="87" y="276">CONTEXTO</text><text x="228" y="286">MODELO</text><text x="365" y="286">DECISÃO</text></g>
+                <text x="16" y="21" font-size="9" font-family="monospace" fill="#638b91">DATA / PROCESS / INSIGHT</text><text x="435" y="309" text-anchor="end" font-family="monospace" font-size="9" fill="#638b91">// TFM · 2026</text>
+              </svg>
             </div>
-            <ul>
-              <li>Atendimento a chamados de Gestão Documental, com pesquisa documental, solicitação de mídias e suporte aos usuários.</li>
-              <li>Digitalização, indexação e organização de documentos físicos e digitais em OnBase e SharePoint, garantindo disponibilidade e rastreabilidade.</li>
-              <li>Desenvolvimento e manutenção de dashboards e painéis de KPIs em Power BI, com integração a bancos de dados, modelagem e criação de métricas.</li>
-              <li>Planilhas avançadas em Excel (Power Query, VBA, tabelas dinâmicas) para automação de rotinas e relatórios gerenciais.</li>
-              <li>Automação de processos com Power Automate, integrando e-mails, planilhas e aplicações corporativas (RPA).</li>
-              <li>Desenvolvimento de assistentes virtuais no Microsoft Copilot Studio para automatizar atendimentos e disponibilizar informações.</li>
-              <li>Lançamento de pré-notas e solicitações de pagamento no ERP Protheus, com apoio à fiscalização de contratos de Facilities.</li>
-              <li>Participação em iniciativas de melhoria contínua e transformação digital.</li>
-            </ul>
+            <div class="board-bottom"><span>FLOW: COLLECT → MODEL → UNDERSTAND</span><strong>● SYSTEM READY</strong></div>
+          </div>
+          <span class="edge-label">INFORMATION DESIGN — 001</span>
+        </aside>
+      </div>
+    </section>
+    <div class="signal-band" aria-label="Áreas de atuação"><div class="container signal-grid"><div class="signal-title display">Uma visão conectada da informação.</div><div class="signal-item"><small>01 / DISCOVER</small><strong>Análise de dados</strong></div><div class="signal-item"><small>02 / OPTIMIZE</small><strong>Automação</strong></div><div class="signal-item"><small>03 / EXPLORE</small><strong>Inteligência artificial</strong></div><div class="signal-item"><small>04 / PRESERVE</small><strong>Governança</strong></div></div></div>
+    <section class="section projects-area" id="projetos" aria-labelledby="projects-title">
+      <div class="container">
+        <div class="section-head"><div><span class="section-number">01 / Trabalhos selecionados</span><h2 id="projects-title">Projetos e explorações.</h2></div><p class="section-intro">Cada projeto é uma investigação prática: uma pergunta, um conjunto de dados, um processo e uma forma de comunicar o que foi descoberto.</p></div>
+        <div class="filters" role="group" aria-label="Filtrar projetos"><button class="filter" type="button" data-filter="todos" aria-pressed="true">Todos [04]</button><button class="filter" type="button" data-filter="dados" aria-pressed="false">Dados & BI [02]</button><button class="filter" type="button" data-filter="pesquisa" aria-pressed="false">Pesquisa & IA [01]</button><button class="filter" type="button" data-filter="automacao" aria-pressed="false">Automação [01]</button></div>
+        <div class="project-grid" id="project-grid">
+          <article class="project-card" data-category="dados">
+            <div class="project-visual visual-mapping"><span class="project-visual-label">FIG 002 · REDE DE PESQUISA</span>
+              <svg viewBox="0 0 600 280" role="img" aria-label="Visualização ilustrativa de uma rede de colaboração científica" xmlns="http://www.w3.org/2000/svg">
+                <g stroke="#6fada9" stroke-width="1.2" opacity=".67"><path d="M108 126 200 81 283 149 372 71 465 110 512 194 390 214 283 149 204 204 108 126 150 222 204 204M200 81 299 56 372 71 430 45 465 110 390 214 330 240 283 149 204 204 299 56M108 126 77 182 150 222M465 110 530 100 512 194 390 214" fill="none"/></g>
+                <g fill="#3f9994"><circle cx="108" cy="126" r="9"/><circle cx="283" cy="149" r="13"/><circle cx="372" cy="71" r="10"/><circle cx="465" cy="110" r="8"/><circle cx="204" cy="204" r="12"/><circle cx="390" cy="214" r="9"/><circle cx="299" cy="56" r="6"/></g><g fill="#8cced6"><circle cx="200" cy="81" r="7"/><circle cx="150" cy="222" r="7"/><circle cx="512" cy="194" r="7"/><circle cx="430" cy="45" r="5"/><circle cx="530" cy="100" r="6"/><circle cx="330" cy="240" r="5"/><circle cx="77" cy="182" r="5"/></g>
+                <g fill="#236f70" font-family="monospace" font-size="11"><text x="55" y="40">openalex / collaboration graph</text><text x="390" y="261">REDE CONCEITUAL</text></g>
+              </svg>
+            </div>
+            <div class="project-body"><div class="project-top"><span class="project-id">CASE STUDY / 001</span><span class="project-status">Publicado</span></div><h3>Cartografia Feminina na Ciência Aberta</h3><p>Investigação da produção científica de mulheres pesquisadoras, com dados do OpenAlex, tratamento em Python e visualização no Power BI. Um olhar sobre autoria, instituições, acesso aberto e colaboração.</p><div class="project-tags"><span>Power BI</span><span>Python</span><span>OpenAlex</span><span>Pesquisa científica</span></div><div class="project-links"><a href="https://tatianefdmelo-ro.github.io/Cartografia_Feminina_Ciencia_Aberta/projetos/Cartografia_Feminina_Ciencia_Aberta/index.html" target="_blank" rel="noopener noreferrer">Explorar estudo de caso ↗</a><a href="https://github.com/tatianefdmelo-ro/Cartografia_Feminina_Ciencia_Aberta" target="_blank" rel="noopener noreferrer">Código ↗</a></div></div>
           </article>
-          <article class="job">
-            <div class="job-meta">
-              <div class="period">2024</div>
-              <div class="org">Secretaria de Estado de Fazenda do RJ</div>
-              <div class="role">Estagiária de Arquivologia</div>
+          <article class="project-card" data-category="dados">
+            <div class="project-visual visual-sales"><span class="project-visual-label">FIG 003 · RETAIL INTELLIGENCE</span>
+              <svg viewBox="0 0 600 280" role="img" aria-label="Prévia ilustrativa de painel de vendas e indicadores" xmlns="http://www.w3.org/2000/svg">
+                <rect x="71" y="46" width="458" height="192" fill="#faffff" stroke="#8cbabe" stroke-width="1.5"/><rect x="71" y="46" width="458" height="27" fill="#d8edf0"/><g fill="#70a9af"><circle cx="88" cy="59" r="3"/><circle cx="100" cy="59" r="3"/><circle cx="112" cy="59" r="3"/></g><text x="413" y="63" font-family="monospace" font-size="9" fill="#2e6778">KPI / SALES</text>
+                <rect x="90" y="91" width="113" height="45" fill="#e8f6f6" stroke="#c9e3e3"/><rect x="214" y="91" width="113" height="45" fill="#e8f6f6" stroke="#c9e3e3"/><rect x="338" y="91" width="169" height="45" fill="#e8f6f6" stroke="#c9e3e3"/>
+                <g fill="#2b7584"><path d="M104 118h37" stroke="#3a8c96" stroke-width="5"/><path d="M228 118h28" stroke="#3a8c96" stroke-width="5"/><path d="M352 118h76" stroke="#3a8c96" stroke-width="5"/></g>
+                <g fill="#719fa3" font-family="monospace" font-size="8"><text x="103" y="104">RECEITA</text><text x="227" y="104">META</text><text x="352" y="104">DESEMPENHO</text></g>
+                <g stroke="#c8dedf"><path d="M98 217h235M98 187h235M98 157h235"/></g><g fill="#4dbeb0"><rect x="113" y="189" width="24" height="28"/><rect x="155" y="173" width="24" height="44"/><rect x="197" y="166" width="24" height="51"/><rect x="239" y="179" width="24" height="38"/><rect x="281" y="148" width="24" height="69"/></g><path d="M110 200 169 187 207 172 251 186 292 156" fill="none" stroke="#286d87" stroke-width="2.5"/>
+                <circle cx="424" cy="184" r="40" fill="none" stroke="#cde6e8" stroke-width="17"/><path d="M424 144a40 40 0 0 1 33 63" fill="none" stroke="#4ebaaa" stroke-width="17"/><path d="M457 207a40 40 0 0 1-38 17" fill="none" stroke="#6599b8" stroke-width="17"/><text x="424" y="187" text-anchor="middle" fill="#2c7176" font-family="monospace" font-size="11">BI</text>
+              </svg>
             </div>
-            <ul>
-              <li>Processamento técnico da Massa Documental Acumulada (MDA), com identificação arquivística de documentos e processos.</li>
-              <li>Classificação, conferência, registro e organização de documentos transferidos.</li>
-              <li>Levantamento de processos em condições de eliminação, com indexação em bases de controle.</li>
-              <li>Uso do Plano de Classificação e da Tabela de Temporalidade, e realização de diagnósticos de acervo.</li>
-              <li>Tramitação, análise e gestão de processos administrativos digitais no Sistema Eletrônico de Informações (SEI).</li>
-            </ul>
+            <div class="project-body"><div class="project-top"><span class="project-id">CASE STUDY / 002</span><span class="project-status">Publicado</span></div><h3>Hashtag Eletro · Análise de Vendas</h3><p>Projeto prático de Business Intelligence com dados fictícios de varejo. Exploração de faturamento, metas, desempenho e indicadores, com tratamento no Power Query e medidas DAX.</p><div class="project-tags"><span>Power BI</span><span>DAX</span><span>Power Query</span><span>Varejo</span></div><div class="project-links"><a href="https://tatianefdmelo-ro.github.io/Cartografia_Feminina_Ciencia_Aberta/projetos/Hashtag_Eletro/index.html" target="_blank" rel="noopener noreferrer">Explorar dashboard ↗</a><a href="https://github.com/tatianefdmelo-ro/Hashtag_Eletro" target="_blank" rel="noopener noreferrer">Repositório ↗</a></div></div>
           </article>
-          <article class="job">
-            <div class="job-meta">
-              <div class="period">2023 – 2024</div>
-              <div class="org">Alterdata Software</div>
-              <div class="role">Jovem Aprendiz · Auxiliar Administrativo</div>
+          <article class="project-card" data-category="pesquisa">
+            <div class="project-visual visual-research"><span class="project-visual-label">LAB NOTE 001 · EM PESQUISA</span>
+              <svg viewBox="0 0 600 280" role="img" aria-label="Esquema conceitual de arquitetura de recuperação aumentada por geração" xmlns="http://www.w3.org/2000/svg"><g fill="none" stroke="#5c9b92" stroke-width="1.8"><path d="M120 140h70m100 0h55m95 0h45" stroke-dasharray="5 5"/><path d="M238 100v-32h107v72" stroke-dasharray="4 6"/></g><rect x="55" y="103" width="94" height="74" fill="#f9ffff" stroke="#72aca4"/><rect x="190" y="103" width="100" height="74" fill="#bfe7db" stroke="#5ba394"/><rect x="345" y="103" width="99" height="74" fill="#e2f5ed" stroke="#5ba394"/><rect x="487" y="103" width="66" height="74" fill="#f9ffff" stroke="#72aca4"/><g fill="#286c69" font-size="11" font-family="monospace" text-anchor="middle"><text x="102" y="137">ARQUIVO</text><text x="102" y="153">DOCS</text><text x="240" y="144">RETRIEVAL</text><text x="394" y="144">LLM / RAG</text><text x="520" y="136">SAÍDA</text><text x="520" y="153">+</text></g><text x="58" y="62" fill="#477c77" font-family="monospace" font-size="11">contexto → recuperação → resposta</text><text x="390" y="225" fill="#477c77" font-family="monospace" font-size="10">ARQUITETURA CONCEITUAL</text></svg>
             </div>
-            <ul>
-              <li>Apoio a consultores comerciais, com contato direto com clientes e registro de pareceres no Bimmer UP.</li>
-              <li>Criação e gestão de planilhas de controle e relatórios; produção de materiais para eventos corporativos.</li>
-              <li>Abertura e acompanhamento de chamados no CRM para demandas técnicas.</li>
-              <li>Elaboração de apresentações comerciais e institucionais no PowerPoint e atendimento a clientes com coleta de feedback.</li>
-            </ul>
+            <div class="project-body"><div class="project-top"><span class="project-id">RESEARCH NOTE / 001</span><span class="project-status">Em pesquisa</span></div><h3>IA generativa & Arquivologia</h3><p>Linha de pesquisa acadêmica sobre classificação e descrição arquivística com IA generativa e recuperação aumentada por geração (RAG), considerando contexto, proveniência e confiabilidade.</p><div class="project-tags"><span>RAG</span><span>IA generativa</span><span>Arquivologia</span><span>Metadados</span></div><div class="project-links"><span>Pesquisa em desenvolvimento · sem demonstração pública</span></div></div>
+          </article>
+          <article class="project-card" data-category="automacao">
+            <div class="project-visual visual-process"><span class="project-visual-label">LAB NOTE 002 · AUTOMAÇÃO</span>
+              <svg viewBox="0 0 600 280" role="img" aria-label="Fluxo conceitual de automação de processos" xmlns="http://www.w3.org/2000/svg"><g fill="none" stroke="#65a7a4" stroke-width="2"><path d="M145 138h81m142 0h78" stroke-dasharray="7 7"/><path d="M310 172v48h135" stroke-dasharray="4 5"/></g><rect x="57" y="101" width="96" height="76" fill="#f8ffff" stroke="#6daba3"/><rect x="226" y="89" width="140" height="100" fill="#c6e9de" stroke="#408e8b" stroke-width="2"/><rect x="446" y="101" width="99" height="76" fill="#f8ffff" stroke="#6daba3"/><g fill="#287778" font-family="monospace" font-size="11" text-anchor="middle"><text x="105" y="132">ORIGEM</text><text x="105" y="148">Excel</text><text x="296" y="128">POWER</text><text x="296" y="143">AUTOMATE</text><text x="296" y="158">→ → →</text><text x="495" y="132">SAÍDA</text><text x="495" y="148">Fluxo</text><text x="444" y="235">VALIDAÇÃO / ALERTAS</text></g><circle cx="311" cy="220" r="5" fill="#469a94"/></svg>
+            </div>
+            <div class="project-body"><div class="project-top"><span class="project-id">EXPLORATION / 002</span><span class="project-status">Laboratório</span></div><h3>Automação de fluxos e processos</h3><p>Estudos e experimentos de integração entre planilhas, tarefas, notificações e sistemas, com foco em reduzir atividades repetitivas e melhorar a rastreabilidade.</p><div class="project-tags"><span>Power Automate</span><span>Excel</span><span>SharePoint</span><span>Processos</span></div><div class="project-links"><span>Experimentos em organização para publicação</span></div></div>
           </article>
         </div>
       </div>
     </section>
-
-    <section id="formacao">
-      <div class="kicker">Estudos</div>
-      <h2 class="section-title">Formação e idiomas</h2>
-      <div class="edu-grid">
-        <div class="edu-card">
-          <div class="label">Graduação · em andamento</div>
-          <h3>Arquivologia</h3>
-          <p>Universidade Federal Fluminense (UFF)</p>
-        </div>
-        <div class="edu-card">
-          <div class="label">Idiomas</div>
-          <h3>Inglês</h3>
-          <p>Avançado/fluente</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="contato">
-      <div class="contact-box">
-        <div>
-          <div class="kicker">Vamos conversar</div>
-          <h2>Interessou por algum projeto ou quer trocar uma ideia?</h2>
-          <p>Estou aberta a oportunidades e colaborações em Data Analytics, Business Intelligence, automação e IA aplicada a processos.</p>
-        </div>
-        <div class="contact-links">
-          <a href="mailto:tatianefdmelo@gmail.com">Enviar e-mail</a>
-          <a class="alt" href="https://www.linkedin.com/in/tatianefdmelo" target="_blank" rel="noopener">LinkedIn ↗</a>
-          <a class="alt" href="https://github.com/tatianefdmelo-ro" target="_blank" rel="noopener">GitHub ↗</a>
-        </div>
-      </div>
-    </section>
+    <aside class="research-band"><div class="container research-inner"><span class="section-number">Uma ideia que guia meu trabalho</span><blockquote>Um bom dashboard não começa com um gráfico. Começa com uma <em>pergunta bem formulada</em>, dados compreendidos e decisões que precisam de clareza.</blockquote></div></aside>
+    <section class="section method" id="metodo" aria-labelledby="method-title"><div class="container"><div class="section-head"><div><span class="section-number">02 / Processo de trabalho</span><h2 id="method-title">Do problema à solução.</h2></div><p class="section-intro">Um fluxo de trabalho que une organização da informação, consistência técnica e comunicação visual.</p></div><div class="method-grid"><div class="method-step"><span class="count">01 / ENTENDER</span><h3>Investigar</h3><p>Contextualizar o problema, mapear fontes, objetivos e limitações.</p></div><div class="method-step"><span class="count">02 / PREPARAR</span><h3>Estruturar</h3><p>Extrair, limpar, padronizar, relacionar e validar os dados.</p></div><div class="method-step"><span class="count">03 / CONSTRUIR</span><h3>Desenvolver</h3><p>Criar medidas, painéis, automações e soluções reproduzíveis.</p></div><div class="method-step"><span class="count">04 / COMUNICAR</span><h3>Explicar</h3><p>Traduzir resultados em visualizações, documentação e decisões.</p></div></div><div class="method-note"><span>WORKFLOW</span><code>extract()</code><span>→</span><code>transform()</code><span>→</span><code>analyze()</code><span>→</span><code>communicate()</code></div></div></section>
+    <section class="section skills-section" id="competencias" aria-labelledby="skills-title"><div class="container"><div class="section-head"><div><span class="section-number">03 / Toolkit</span><h2 id="skills-title">Ferramentas e competências.</h2></div><p class="section-intro">Um conjunto de competências que conecta visualização, engenharia de processos e preservação do contexto informacional.</p></div><div class="skill-grid"><article class="skill-card"><header><span class="skill-symbol">01</span><h3>Business Intelligence</h3></header><p>Modelagem, criação de indicadores, construção de narrativas visuais e acompanhamento de desempenho.</p><div class="skill-labels"><span>Power BI</span><span>DAX</span><span>Power Query</span><span>Excel</span></div></article><article class="skill-card"><header><span class="skill-symbol">02</span><h3>Dados & programação</h3></header><p>Preparação, análise e integração de fontes para construir processos consistentes e reproduzíveis.</p><div class="skill-labels"><span>Python</span><span>Pandas</span><span>SQL</span><span>Jupyter Notebook</span><span>ETL</span></div></article><article class="skill-card"><header><span class="skill-symbol">03</span><h3>Automação & IA</h3></header><p>Automação de tarefas, integração de sistemas e exploração de soluções com inteligência artificial.</p><div class="skill-labels"><span>Power Automate</span><span>Power Automate Desktop</span><span>Copilot Studio</span><span>RAG</span></div></article><article class="skill-card"><header><span class="skill-symbol">04</span><h3>Informação & governança</h3></header><p>Organização, classificação, rastreabilidade e qualidade de informações físicas e digitais.</p><div class="skill-labels"><span>Arquivologia</span><span>SharePoint</span><span>OnBase</span><span>Metadados</span></div></article></div></div></section>
+    <section class="section about-section" id="sobre" aria-labelledby="about-title"><div class="container about-layout"><div class="about-sidebar"><span class="section-number">04 / Sobre mim</span><h2 id="about-title">Uma trajetória entre dados e informação.</h2><div class="about-square" aria-hidden="true"><span class="monogram">TF.</span><small>RIO DE JANEIRO / BR</small></div></div><div class="about-copy"><p class="lead">A organização da informação é a base. A tecnologia amplia o que podemos fazer com ela.</p><p>Sou estudante de Arquivologia na Universidade Federal Fluminense (UFF) e atuo com análise de dados, automação e gestão documental. Tenho experiência com dashboards em Power BI, organização de fontes de dados, Excel avançado e integração de processos usando ferramentas do ecossistema Microsoft.</p><p>Minha formação em Arquivologia trouxe atenção à proveniência, à qualidade e à rastreabilidade dos registros. Hoje aplico esse olhar também à análise de dados e à exploração de inteligência artificial aplicada a processos e documentos.</p><div class="timeline"><div class="timeline-row"><time>2025 — atual</time><div><strong>Petros</strong><small>Estágio · Gestão Documental, análise de dados e automação</small></div></div><div class="timeline-row"><time>2024</time><div><strong>Secretaria de Estado de Fazenda do RJ</strong><small>Estágio · Arquivologia e gestão de acervos</small></div></div><div class="timeline-row"><time>2023 — 2024</time><div><strong>Alterdata Software</strong><small>Jovem Aprendiz · Apoio comercial e administrativo</small></div></div><div class="timeline-row"><time>Em curso</time><div><strong>Universidade Federal Fluminense</strong><small>Graduação em Arquivologia</small></div></div></div></div></div></section>
+    <section class="contact-section" id="contato" aria-labelledby="contact-title"><div class="container contact-panel"><div><span class="section-number">05 / Conexões</span><h2 id="contact-title">Temos um problema interessante para <span>resolver?</span></h2></div><div><p>Estou aberta a conversas sobre dados, BI, automação, gestão da informação e oportunidades de colaboração.</p><div class="contact-links"><a href="mailto:tatianefdmelo@gmail.com">Enviar e-mail <span aria-hidden="true">↗</span></a><a href="https://www.linkedin.com/in/tatianefdmelo" target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a><a href="https://github.com/tatianefdmelo-ro" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a></div></div></div></section>
   </main>
-
-  <footer>
-    <span>© 2026 Tatiane Ferro de Melo · Portfólio de dados</span>
-    <span>Rio de Janeiro, RJ</span>
-  </footer>
+  <footer class="site-footer"><div class="container footer-inner"><span><strong>TF.</strong> / Data & Intelligence Lab</span><span>© <span id="year">2026</span> Tatiane Ferro de Melo</span><a href="#topo">Voltar ao início ↑</a></div></footer>
+  <script>
+    (function () {
+      'use strict';
+      const root = document.documentElement;
+      const themeButton = document.getElementById('theme-toggle');
+      const menuButton = document.getElementById('menu-toggle');
+      const nav = document.getElementById('main-nav');
+      const progress = document.getElementById('scroll-progress');
+      const buttons = Array.from(document.querySelectorAll('[data-filter]'));
+      const cards = Array.from(document.querySelectorAll('[data-category]'));
+      const year = document.getElementById('year');
+      year.textContent = new Date().getFullYear();
+      try { if (localStorage.getItem('tf-theme') === 'dark') root.dataset.theme = 'dark'; } catch (error) { /* privacy mode */ }
+      function updateThemeLabel() {
+        const dark = root.dataset.theme === 'dark';
+        themeButton.setAttribute('aria-label', dark ? 'Ativar modo claro' : 'Ativar modo escuro');
+        themeButton.setAttribute('title', dark ? 'Ativar modo claro' : 'Ativar modo escuro');
+        themeButton.setAttribute('aria-pressed', String(dark));
+      }
+      updateThemeLabel();
+      themeButton.addEventListener('click', function () {
+        root.dataset.theme = root.dataset.theme === 'dark' ? 'light' : 'dark';
+        updateThemeLabel();
+        try { localStorage.setItem('tf-theme', root.dataset.theme); } catch (error) { /* privacy mode */ }
+      });
+      menuButton.addEventListener('click', function () {
+        const open = !nav.classList.contains('is-open');
+        nav.classList.toggle('is-open', open);
+        menuButton.setAttribute('aria-expanded', String(open));
+        menuButton.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
+      });
+      nav.querySelectorAll('a').forEach(function (link) { link.addEventListener('click', function () {
+        nav.classList.remove('is-open'); menuButton.setAttribute('aria-expanded','false'); menuButton.setAttribute('aria-label','Abrir menu');
+      }); });
+      buttons.forEach(function (button) { button.addEventListener('click', function () {
+        const chosen = button.dataset.filter;
+        buttons.forEach(function (item) { item.setAttribute('aria-pressed', String(item === button)); });
+        cards.forEach(function (card) { card.hidden = chosen !== 'todos' && card.dataset.category !== chosen; });
+      }); });
+      let ticking = false;
+      function updateProgress() {
+        const max = document.documentElement.scrollHeight - window.innerHeight;
+        progress.style.width = (max > 0 ? (window.scrollY / max * 100) : 0) + '%';
+        ticking = false;
+      }
+      window.addEventListener('scroll', function () { if (!ticking) { requestAnimationFrame(updateProgress); ticking = true; } }, {passive:true});
+      window.addEventListener('resize', updateProgress, {passive:true});
+      updateProgress();
+    })();
+  </script>
 </body>
 </html>
